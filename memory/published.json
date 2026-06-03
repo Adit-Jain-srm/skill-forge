@@ -1,6 +1,12 @@
 {
   "version": "1.0.0",
-  "last_updated": null,
-  "total_published": 0,
-  "repos": []
+  "last_updated": "2026-06-04T03:15:00+05:30",
+  "total_published": 5,
+  "repos": [
+    {"full_name": "Adit-Jain-srm/skill-forge", "name": "skill-forge", "category": "meta_skills", "published_at": "2026-06-04T02:55:00+05:30", "stars": 0, "forks": 0, "open_issues": 0},
+    {"full_name": "Adit-Jain-srm/mcp-conductor", "name": "mcp-conductor", "category": "integration", "published_at": "2026-06-04T03:05:00+05:30", "stars": 0, "forks": 0, "open_issues": 0},
+    {"full_name": "Adit-Jain-srm/web-perf-skill", "name": "web-perf-skill", "category": "performance", "published_at": "2026-06-04T03:10:00+05:30", "stars": 0, "forks": 0, "open_issues": 0},
+    {"full_name": "Adit-Jain-srm/git-workflow-skill", "name": "git-workflow-skill", "category": "automation", "published_at": "2026-06-04T03:12:00+05:30", "stars": 0, "forks": 0, "open_issues": 0},
+    {"full_name": "Adit-Jain-srm/db-schema-skill", "name": "db-schema-skill", "category": "data_processing", "published_at": "2026-06-04T03:15:00+05:30", "stars": 0, "forks": 0, "open_issues": 0}
+  ]
 }
