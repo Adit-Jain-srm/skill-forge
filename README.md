@@ -1,6 +1,6 @@
 # skill-forge
 
-**Your agent keeps using the same stale knowledge. This fixes that.**
+**Your agent keeps using the same stale knowledge. These are the skills I built to fix that — straight from my daily workflow.**
 
 ---
 
@@ -57,15 +57,18 @@ git clone https://github.com/Adit-Jain-srm/skill-forge.git
 
 | Problem | Skill | Behavior Change |
 |---------|-------|-----------------|
-| "My agent shows me buggy first drafts" | [`self-review`](skills/self-review/) | Agent reviews own code BEFORE presenting it. Silently fixes bugs. |
-| "The agent doesn't speak my domain language" | [`context-builder`](skills/context-builder/) | Builds CONTEXT.md shared vocabulary. 50-75% less verbosity. |
-| "My agent uses one tool when it should chain five" | [`mcp-conductor`](skills/mcp-conductor/) | Teaches multi-MCP orchestration: search → scrape → analyze → synthesize |
-| "My git history is an unreadable mess" | [`git-workflow`](skills/git-workflow/) | Enforces discipline: atomic commits, conventional messages, PR readiness |
-| "My site is slow and I don't know why" | [`web-perf`](skills/web-perf/) | Diagnoses + fixes Core Web Vitals with production code patterns |
+| "My agent shows me buggy first drafts" | [`self-review`](skills/self-review/) | Reviews own code BEFORE presenting. Catches bugs first-pass. |
+| "The agent doesn't speak my project's language" | [`context-builder`](skills/context-builder/) | Builds CONTEXT.md shared vocabulary. 50-75% token reduction. |
+| "Something is broken and I don't know why" | [`diagnose`](skills/diagnose/) | Forced loop: reproduce → minimise → hypothesise → instrument → fix → test |
+| "I need to continue this work later" | [`handoff`](skills/handoff/) | Compacts session into handoff doc another agent can pick up instantly |
+| "I'm lost in unfamiliar code" | [`zoom-out`](skills/zoom-out/) | Forces perspective: what system is this, who calls it, what breaks if it changes |
+| "My agent uses one tool when it should chain five" | [`mcp-conductor`](skills/mcp-conductor/) | Multi-MCP orchestration: search → scrape → analyze → synthesize |
+| "My git history is an unreadable mess" | [`git-workflow`](skills/git-workflow/) | Disciplines: atomic commits, conventional messages, PR readiness |
+| "My site is slow and I don't know why" | [`web-perf`](skills/web-perf/) | Diagnoses + fixes Core Web Vitals with production code |
 | "My code breaks in production every night" | [`error-resilience`](skills/error-resilience/) | Retry, circuit breakers, timeouts, graceful degradation |
 | "Nobody knows how this codebase works" | [`arch-from-code`](skills/arch-from-code/) | Generates Mermaid/C4 diagrams from actual codebase analysis |
-| "My database design breaks at scale" | [`db-schema`](skills/db-schema/) | Production schema: indexes, migrations, multi-tenancy patterns |
-| "First-time setup is confusing" | [`setup`](skills/setup/) | One-time onboarding: configures preferences all other skills use |
+| "My database design breaks at scale" | [`db-schema`](skills/db-schema/) | Production schema: indexes, migrations, multi-tenancy |
+| "First-time setup is confusing" | [`setup`](skills/setup/) | Configures preferences all other skills use |
 
 ---
 
