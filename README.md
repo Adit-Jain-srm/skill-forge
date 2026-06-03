@@ -2,7 +2,7 @@
 
 **Production-grade AI agent skills + an autonomous engine that discovers, learns from, and creates more.**
 
-5 specialized skills covering MCP orchestration, web performance, git workflows, and database design — plus a self-improving meta-agent that continuously expands the collection.
+6 specialized skills covering MCP orchestration, web performance, git workflows, database design, architecture diagramming, and error resilience — plus a self-improving meta-agent that continuously expands the collection.
 
 ---
 
@@ -14,6 +14,8 @@
 | [`web-perf`](skills/web-perf/) | Diagnose and fix Core Web Vitals (LCP, INP, CLS) | slow page, lighthouse, page speed, bundle size |
 | [`git-workflow`](skills/git-workflow/) | Advanced git: branching, releases, monorepos, archaeology | branching strategy, release, monorepo, git history |
 | [`db-schema`](skills/db-schema/) | Production database design: indexes, migrations, multi-tenancy | schema, migration, indexing, multi-tenant |
+| [`arch-from-code`](skills/arch-from-code/) | Generate architecture diagrams directly from codebase analysis | document architecture, dependency graph, C4 diagram, visualize |
+| [`error-resilience`](skills/error-resilience/) | Retry patterns, circuit breakers, graceful degradation, timeouts | retry, circuit breaker, timeout, resilience, error handling |
 
 Each skill follows the [anatomy standard](docs/skill-anatomy.md) — actionable, code-heavy, battle-tested.
 
