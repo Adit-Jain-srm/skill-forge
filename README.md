@@ -1,96 +1,144 @@
 # skill-forge
 
-**Autonomous self-improving AI agent that devours skills across the internet, learns from every one, identifies gaps, creates novel skills, and publishes them.**
+**Production-grade AI agent skills + an autonomous engine that discovers, learns from, and creates more.**
 
-> If it lacks something — find it. If nothing seems missing — find something to reveal what's missing.
+5 specialized skills covering MCP orchestration, web performance, git workflows, and database design — plus a self-improving meta-agent that continuously expands the collection.
 
-## What This Is
+---
 
-skill-forge is a Cursor Skill (`SKILL.md`) that operates as a meta-agent:
+## Skills
 
-1. **Discovers** — Vacuums GitHub, skills.sh, LobeHub, Exa, Bright Data for new skills
-2. **Analyzes** — Reads each skill, extracts patterns, philosophy, novel ideas, scores novelty
-3. **Learns** — Accumulates knowledge in a persistent memory system with RL-weighted preferences
-4. **Identifies Gaps** — Runs anti-laziness scans ("what's missing that SHOULD exist?")
-5. **Creates** — Generates high-quality skills that fill identified gaps
-6. **Publishes** — Ships repos to GitHub, compatible with `npx skills add`
-7. **Self-Improves** — Rewrites its own heuristics based on outcomes (RL + SkillOpt-inspired training)
+| Skill | What It Does | Key Triggers |
+|-------|-------------|-------------|
+| [`mcp-conductor`](skills/mcp-conductor/) | Orchestrate multiple MCP servers in research/analysis pipelines | multi-source, research, combine tools |
+| [`web-perf`](skills/web-perf/) | Diagnose and fix Core Web Vitals (LCP, INP, CLS) | slow page, lighthouse, page speed, bundle size |
+| [`git-workflow`](skills/git-workflow/) | Advanced git: branching, releases, monorepos, archaeology | branching strategy, release, monorepo, git history |
+| [`db-schema`](skills/db-schema/) | Production database design: indexes, migrations, multi-tenancy | schema, migration, indexing, multi-tenant |
 
-## Install
+Each skill follows the [anatomy standard](docs/skill-anatomy.md) — actionable, code-heavy, battle-tested.
+
+---
+
+## Quick Start
+
+<details>
+<summary><b>Cursor</b></summary>
 
 ```bash
 npx skills add Adit-Jain-srm/skill-forge
 ```
 
-Or manually:
+Or manually copy `skills/` to `~/.cursor/skills/`.
+
+</details>
+
+<details>
+<summary><b>Claude Code</b></summary>
+
 ```bash
 git clone https://github.com/Adit-Jain-srm/skill-forge.git
-cp -r skill-forge ~/.cursor/skills/skill-forge
+claude --plugin-dir ./skill-forge
 ```
 
-## Invocation
+</details>
 
-```
-skill-forge              — Full pipeline (discover → analyze → decide → act → learn → improve)
-skill-forge discover     — Vacuum all sources for new skills
-skill-forge route <task> — Find best skills for a task
-skill-forge create <gap> — Create and publish a skill for an identified gap
-skill-forge devour       — Maximum aggression: discover all, learn all, create to fill gaps
-skill-forge loop         — Continuous autonomous mode (30-min cycles)
-skill-forge empire       — Portfolio review: stars, growth, strategic planning
-skill-forge status       — Knowledge base stats
-skill-forge improve      — Force self-improvement cycle
+<details>
+<summary><b>Codex CLI</b></summary>
+
+```bash
+git clone https://github.com/Adit-Jain-srm/skill-forge.git
+# Add skills/ path to your AGENTS.md or ~/.codex/skills/
 ```
 
-## Architecture
+</details>
+
+<details>
+<summary><b>Gemini CLI</b></summary>
+
+```bash
+gemini skills install https://github.com/Adit-Jain-srm/skill-forge.git --path skills
+```
+
+</details>
+
+<details>
+<summary><b>Windsurf</b></summary>
+
+Copy any `SKILL.md` from `skills/` into your Windsurf rules directory.
+
+</details>
+
+---
+
+## The Meta-Agent
+
+The root `SKILL.md` is itself a skill — an autonomous discovery and creation engine:
+
+```
+skill-forge              — Full pipeline (discover → analyze → decide → act → learn)
+skill-forge discover     — Vacuum the internet for new skills
+skill-forge route <task> — Find the best skill for your task
+skill-forge create       — Generate and publish a new skill
+skill-forge devour       — Maximum learning + creation mode
+```
+
+It uses:
+- **Exa MCP** for semantic web search
+- **Bright Data MCP** for scraping any URL
+- **GitHub CLI** for repo discovery and publishing
+- **Reinforcement Learning** (EMA-based) to improve over time
+
+---
+
+## Documentation
+
+| Doc | Purpose |
+|-----|---------|
+| [Getting Started](docs/getting-started.md) | Installation for all platforms |
+| [Skill Anatomy](docs/skill-anatomy.md) | How skills are structured |
+| [Contributing](CONTRIBUTING.md) | How to add new skills |
+
+---
+
+## Quality Bar
+
+Every skill is validated against:
+- Under 500 lines (progressive disclosure for depth)
+- Valid YAML frontmatter with trigger conditions
+- Actionable code examples (not pseudocode)
+- Common mistakes section (what NOT to do)
+- No vague advice — every instruction answers "what do I DO?"
+
+Run validation: `node scripts/validate-skill.js skills/<name>`
+
+---
+
+## Project Structure
 
 ```
 skill-forge/
-├── SKILL.md              # Master orchestrator (218 lines)
-├── reference.md          # Detailed pipeline docs + MCP commands
-├── scripts/
-│   ├── discover.js       # Multi-source discovery engine
-│   ├── analyze.js        # SKILL.md reader + pattern extractor
-│   ├── route-task.js     # Task-to-skill matching with RL weights
-│   ├── install.js        # Skill installer (npx + manual + MCP)
-│   ├── scaffold-repo.js  # New repo creation for publishing
-│   ├── rl-update.js      # Reinforcement learning (EMA-based)
-│   └── self-improve.js   # Monitoring + weakness analysis
-├── memory/
-│   ├── rl-state.json           # RL weights (sources, categories, routing)
-│   ├── discovered-skills.json  # All known skills catalog
-│   ├── learnings.json          # Extracted patterns + philosophies
-│   ├── gaps.json               # Ecosystem gaps (creation targets)
-│   ├── published.json          # Our shipped repos + metrics
-│   ├── reputation-playbook.json # What makes skills get stars
-│   └── evolution-log.jsonl     # Append-only self-improvement history
-└── templates/skill-repo/       # Templates for new skill repos
+├── SKILL.md              # Meta-agent (discovery + creation engine)
+├── skills/               # The skill collection
+│   ├── mcp-conductor/    # Multi-MCP orchestration
+│   ├── web-perf/         # Core Web Vitals optimization
+│   ├── git-workflow/     # Advanced git workflows
+│   └── db-schema/        # Production database design
+├── scripts/              # Automation (discovery, analysis, validation, RL)
+├── memory/               # Persistent state (RL weights, learnings, gaps)
+├── templates/            # Templates for new skill repos
+└── docs/                 # Setup guides + contributing standards
 ```
+
+---
 
 ## Philosophy
 
-- **NO LIMITATIONS TO LEARNING** — The internet is the perimeter. Follow trails wherever they lead.
-- **ANTI-LAZINESS** — If nothing seems missing, look harder. Everything is incomplete until proven otherwise.
-- **GREED** — Stars are currency. Quantity WITH quality. Dominate categories.
-- **REPUTATION** — Every published skill must trigger "I NEED this" in 5 seconds.
+- **Anti-laziness:** If it lacks something — find it, use it. If nothing seems missing — look harder.
+- **No limitations:** Follow trails wherever they lead. Blog → paper → code → community → synthesis.
+- **Quality over speed:** One excellent skill > ten mediocre ones.
+- **User perspective:** Every skill must make the agent MEASURABLY better at the task.
 
-## Reinforcement Learning
-
-skill-forge uses EMA-based RL to continuously improve:
-- Sources that yield novel skills get higher weight
-- Categories where creations succeed get prioritized
-- Routing accuracy improves from feedback
-- Self-improvement loops that yield measurable gains get reinforced
-
-## Compatibility
-
-Works with any agent supporting the [SKILL.md standard](https://agentskills.io/specification):
-- Cursor
-- Claude Code
-- GitHub Copilot (Codex CLI)
-- Windsurf
-- Gemini CLI
-- And 40+ others
+---
 
 ## License
 
