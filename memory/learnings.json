@@ -1,25 +1,45 @@
 {
   "version": "1.0.0",
-  "last_updated": "2026-06-04T02:50:00+05:30",
-  "total_learnings": 8,
+  "last_updated": "2026-06-04T03:30:00+05:30",
+  "total_learnings": 22,
   "patterns": [
-    {"pattern": "lifecycle_slash_commands", "description": "Map skills to development phases via slash commands (/spec, /plan, /build, /test, /review, /ship). Users get instant clarity.", "source": "addyosmani/agent-skills", "confidence": 0.95},
-    {"pattern": "skill_as_trainable_state", "description": "Treat SKILL.md as trainable parameters of a frozen agent. Use rollout→reflect→aggregate→select→update→evaluate loop to improve skills programmatically.", "source": "microsoft/SkillOpt", "confidence": 0.9},
-    {"pattern": "multi_platform_install_docs", "description": "Always provide install instructions for ALL major platforms (Cursor, Claude Code, Codex CLI, Gemini CLI) in collapsible sections. Maximizes reach.", "source": "addyosmani/agent-skills", "confidence": 0.9},
-    {"pattern": "numbers_in_description", "description": "Include quantified scope in repo description: '150+ Skills', '90+ modules', '100+ databases'. Numbers signal depth and value.", "source": "multiple_top_repos", "confidence": 0.95},
-    {"pattern": "security_skills_high_demand", "description": "Offensive security skills (red team, OSINT, pentesting) consistently get 1K-3K stars. Underserved niche with high demand.", "source": "raptor/Claude-Red/Claude-OSINT", "confidence": 0.85},
-    {"pattern": "meta_skills_novel_category", "description": "Skills that improve OTHER skills (SkillOpt, agent-skill-creator) are a novel high-value category. The 'skill about skills' niche is growing.", "source": "microsoft/SkillOpt + FrancyJGLisboa", "confidence": 0.85},
-    {"pattern": "awesome_list_dominates_stars", "description": "Curated awesome-lists of skills get 10K-146K stars. But require massive ongoing curation. Only pursue if committed to maintenance.", "source": "multiple_awesome_repos", "confidence": 0.9},
-    {"pattern": "domain_authority_beats_breadth", "description": "Deep expertise in one domain (science: 27K, security: 1.9K) beats shallow coverage of many domains. Go DEEP in niches.", "source": "K-Dense-AI/scientific-agent-skills", "confidence": 0.9}
+    {"pattern": "lifecycle_slash_commands", "description": "Map skills to development phases via slash commands. Users get instant clarity.", "source": "addyosmani/agent-skills", "confidence": 0.95},
+    {"pattern": "skill_as_trainable_state", "description": "Treat SKILL.md as trainable parameters of a frozen agent. Use rollout-reflect-aggregate-select-update-evaluate loop.", "source": "microsoft/SkillOpt", "confidence": 0.9},
+    {"pattern": "multi_platform_install_docs", "description": "Always provide install instructions for ALL platforms in collapsible details.", "source": "addyosmani/agent-skills", "confidence": 0.9},
+    {"pattern": "numbers_in_description", "description": "Include quantified scope in description. Numbers signal depth.", "source": "multiple_top_repos", "confidence": 0.95},
+    {"pattern": "security_skills_high_demand", "description": "Offensive security skills consistently get 1K-3K stars. Underserved niche.", "source": "raptor/Claude-Red/Claude-OSINT/Shannon", "confidence": 0.85},
+    {"pattern": "meta_skills_novel_category", "description": "Skills that improve OTHER skills are novel and high-value.", "source": "microsoft/SkillOpt + FrancyJGLisboa", "confidence": 0.85},
+    {"pattern": "awesome_list_dominates_stars", "description": "Curated collections get 10K-146K stars. Require ongoing curation.", "source": "multiple_awesome_repos", "confidence": 0.9},
+    {"pattern": "domain_authority_beats_breadth", "description": "Deep expertise in one domain beats shallow coverage of many.", "source": "K-Dense-AI/scientific-agent-skills", "confidence": 0.9},
+    {"pattern": "COLLECTION_REPO_NOT_SINGLE_FILE", "description": "Single SKILL.md repos do NOT get stars. Collections with proper docs, CONTRIBUTING, validation, platform guides get stars.", "source": "addyosmani (48K), TRAE-Skills (236)", "confidence": 1.0},
+    {"pattern": "quality_bar_documented", "description": "Top repos have CONTRIBUTING.md with anatomy, required sections, code examples required.", "source": "addyosmani/agent-skills", "confidence": 0.95},
+    {"pattern": "docs_directory_essential", "description": "Need: getting-started.md, skill-anatomy.md, platform-specific setup guides.", "source": "addyosmani (7 docs files)", "confidence": 0.9},
+    {"pattern": "validation_scripts", "description": "Automated validation signals engineering rigor.", "source": "self-developed", "confidence": 0.85},
+    {"pattern": "required_skill_sections", "description": "Every skill needs: Overview, When to Use, Quick Start, Process, Common Mistakes, Verification.", "source": "addyosmani CONTRIBUTING.md", "confidence": 0.95},
+    {"pattern": "progressive_disclosure_structure", "description": "SKILL.md = essentials. reference.md = depth.", "source": "cursor create-skill spec + addyosmani", "confidence": 0.9},
+    {"pattern": "agents_md_and_claude_md", "description": "Top repos include AGENTS.md and CLAUDE.md for AI-native discoverability.", "source": "addyosmani (has both)", "confidence": 0.85},
+    {"pattern": "top_10_skills_2026", "description": "The 10 must-have skills for 2026: frontend-design (277K installs), browser-use, code-reviewer, Remotion, Google Workspace, Valyu, Antigravity collection, PlanetScale, Shannon pentester, Excalidraw diagrams.", "source": "unicodeveloper Medium article Mar 2026", "confidence": 0.9},
+    {"pattern": "skill_activation_clarity", "description": "Skills activate via description triggers OR slash commands. Best skills have BOTH: auto-trigger from task + explicit /command.", "source": "addyosmani + Medium article", "confidence": 0.9},
+    {"pattern": "human_in_the_loop_gap", "description": "Skills can't express their UI needs for human input. Proposed fix: human-interactions field in spec. This is an UNSOLVED PROBLEM in the ecosystem.", "source": "DEV Community article Jun 2026", "confidence": 0.8},
+    {"pattern": "copy_paste_ready_code", "description": "Code examples must be copy-paste ready. No pseudocode, no placeholders. Real imports, real function signatures, real error handling.", "source": "addyosmani quality bar + user feedback", "confidence": 0.95},
+    {"pattern": "verification_section_critical", "description": "Every skill needs a Verification section: how to PROVE it worked. Checklist format. Without this, agents claim success without evidence.", "source": "superpowers/verification-before-completion + addyosmani", "confidence": 0.95},
+    {"pattern": "before_after_in_readme", "description": "README must show Before (pain) / After (relief). Makes value instantly clear.", "source": "web research + reputation playbook", "confidence": 0.9},
+    {"pattern": "network_retry_learning", "description": "GitHub DNS fails intermittently. Always retry with HTTP/1.1 fallback. If DNS fails 3x, network is down — work locally and push later.", "source": "self-learned from repeated failures", "confidence": 1.0}
   ],
   "philosophies": [
     {"text": "Skills encode the workflows that senior engineers use — packaged so AI agents follow them consistently", "source": "addyosmani/agent-skills"},
-    {"text": "Treat the skill document as the trainable state of a frozen agent, train it with the discipline of weight-space optimization", "source": "microsoft/SkillOpt"},
-    {"text": "The deployed artifact is a compact best_skill.md that runs against the unchanged target model — zero inference-time cost", "source": "microsoft/SkillOpt"},
-    {"text": "One SKILL.md, every platform — cross-platform is the standard, not the exception", "source": "FrancyJGLisboa/agent-skill-creator"}
+    {"text": "Treat the skill document as the trainable state of a frozen agent", "source": "microsoft/SkillOpt"},
+    {"text": "A raw agent without skills is like a senior engineer on day one: brilliant, but missing all the project-specific context", "source": "unicodeveloper Medium article"},
+    {"text": "One SKILL.md, every platform — cross-platform is the standard", "source": "FrancyJGLisboa/agent-skill-creator"},
+    {"text": "A single SKILL.md is not a product. An ecosystem is a product.", "source": "self-learned cycle 1"},
+    {"text": "Evidence before claims, always. No completion claims without fresh verification evidence.", "source": "superpowers/verification-before-completion"},
+    {"text": "Write the test first. Watch it fail. Write minimal code to pass. Applied to skills: test the skill with pressure scenarios before deploying.", "source": "superpowers/test-driven-development + writing-skills"}
   ],
   "techniques": [
-    {"name": "SkillOpt training loop", "description": "rollout → reflect → aggregate → select → update → evaluate. Bounded edits (add/delete/replace). Validation gate. Textual learning rate.", "source": "microsoft/SkillOpt"},
-    {"name": "Slash command mapping", "description": "Define 5-7 slash commands that map to workflow phases. Skills auto-activate based on current activity.", "source": "addyosmani/agent-skills"}
+    {"name": "SkillOpt training loop", "description": "rollout-reflect-aggregate-select-update-evaluate.", "source": "microsoft/SkillOpt"},
+    {"name": "Slash command mapping", "description": "5-7 slash commands mapping to workflow phases.", "source": "addyosmani/agent-skills"},
+    {"name": "Skill validation script", "description": "Automated checks: frontmatter, lines, sections, code, placeholders.", "source": "self-developed"},
+    {"name": "Anti-laziness scanner", "description": "For each skill ask: what would make this 10x better? What adjacent skill should exist?", "source": "self-developed"},
+    {"name": "Exa semantic search for gap discovery", "description": "Query: 'developers wish existed 2026 pain points' + 'most useful AI skills' to find real unmet needs.", "source": "self-developed cycle 2"}
   ]
 }
