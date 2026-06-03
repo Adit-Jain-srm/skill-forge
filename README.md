@@ -55,16 +55,17 @@ git clone https://github.com/Adit-Jain-srm/skill-forge.git
 
 ## Skills Included
 
-These compound skills solve real engineering pain, not just list features:
-
-| Problem | Skill | What Changes |
-|---------|-------|-------------|
-| "My agent uses one tool when it should chain five" | [`mcp-conductor`](skills/mcp-conductor/) | Teaches multi-MCP orchestration pipelines |
-| "My site is slow and I don't know why" | [`web-perf`](skills/web-perf/) | Diagnoses + fixes Core Web Vitals with real code |
-| "I'm drowning in git complexity" | [`git-workflow`](skills/git-workflow/) | Branching, releases, monorepo navigation |
-| "My database design breaks at scale" | [`db-schema`](skills/db-schema/) | Production schema: indexes, migrations, multi-tenancy |
-| "Nobody knows how this codebase works" | [`arch-from-code`](skills/arch-from-code/) | Generates architecture diagrams from actual code |
-| "My code breaks in production every night" | [`error-resilience`](skills/error-resilience/) | Retry, circuit breakers, graceful degradation |
+| Problem | Skill | Behavior Change |
+|---------|-------|-----------------|
+| "My agent shows me buggy first drafts" | [`self-review`](skills/self-review/) | Agent reviews own code BEFORE presenting it. Silently fixes bugs. |
+| "The agent doesn't speak my domain language" | [`context-builder`](skills/context-builder/) | Builds CONTEXT.md shared vocabulary. 50-75% less verbosity. |
+| "My agent uses one tool when it should chain five" | [`mcp-conductor`](skills/mcp-conductor/) | Teaches multi-MCP orchestration: search → scrape → analyze → synthesize |
+| "My git history is an unreadable mess" | [`git-workflow`](skills/git-workflow/) | Enforces discipline: atomic commits, conventional messages, PR readiness |
+| "My site is slow and I don't know why" | [`web-perf`](skills/web-perf/) | Diagnoses + fixes Core Web Vitals with production code patterns |
+| "My code breaks in production every night" | [`error-resilience`](skills/error-resilience/) | Retry, circuit breakers, timeouts, graceful degradation |
+| "Nobody knows how this codebase works" | [`arch-from-code`](skills/arch-from-code/) | Generates Mermaid/C4 diagrams from actual codebase analysis |
+| "My database design breaks at scale" | [`db-schema`](skills/db-schema/) | Production schema: indexes, migrations, multi-tenancy patterns |
+| "First-time setup is confusing" | [`setup`](skills/setup/) | One-time onboarding: configures preferences all other skills use |
 
 ---
 

@@ -1,194 +1,95 @@
 ---
 name: git-workflow
 description: >-
-  Automate advanced git workflows beyond basic commits. Smart branching strategies,
-  PR description generation, changelog automation, release management, monorepo
-  navigation, conflict resolution, and commit archaeology. Use when the user
-  mentions git workflow, branching strategy, release management, PR templates,
-  changelog generation, monorepo, git history, rebase strategy, or asks about
-  git best practices beyond basic add/commit/push.
+  Enforces disciplined git practices on every commit. Small atomic commits,
+  conventional messages, branch hygiene, and PR readiness checks. Changes how
+  the agent HANDLES git — not just what commands it knows. Auto-triggers on any
+  git operation. Use when committing, branching, merging, or preparing PRs.
+  Also use when git history is messy, commits are too large, or PRs get rejected
+  for poor git hygiene.
 ---
 
-# Git Workflow Automation
+# Git Workflow
 
-Advanced git workflows that AI agents should know but usually don't.
+Change how you handle git. Not a reference — a DISCIPLINE.
 
-## Branching Strategies
+## Persistence
 
-### When to Use What
+ACTIVE on every git operation. Every commit, every branch, every PR. Not optional. Off only when user explicitly says "skip git discipline".
 
-| Strategy | Team Size | Deploy Frequency | Use When |
-|----------|-----------|-----------------|----------|
-| **Trunk-based** | Any | Multiple/day | CI/CD mature, feature flags available |
-| **GitHub Flow** | 2-10 | Daily-weekly | Simple PRs, one production branch |
-| **GitFlow** | 10+ | Scheduled releases | Enterprise, multiple versions supported |
-| **Release branches** | 5+ | Bi-weekly+ | Need release stabilization period |
+## The Discipline
 
-### Trunk-Based (Recommended Default)
+### Every Commit Must Be
 
-```bash
-# Short-lived feature branch (< 2 days)
-git checkout -b feat/add-auth
-# ... work ...
-git push -u origin feat/add-auth
-gh pr create --title "feat: add auth" --body "..."
-# Merge same day or next day. Delete branch.
+```
+SMALL: One logical change (if you need "and" to describe it, split it)
+ATOMIC: Passes tests on its own (any commit can be reverted safely)
+MESSAGED: Conventional format (type: concise description)
+CLEAN: No debug logs, no commented code, no TODOs you won't do
 ```
 
-Rules:
-- Branches live < 2 days
-- Feature flags for incomplete work
-- CI must pass before merge
-- Squash merge to keep history clean
+Before EVERY `git commit`:
+1. `git diff --staged` — READ what you're actually committing
+2. Is this ONE thing? If not, `git reset HEAD` and commit in parts
+3. Write message: `type(scope): what changed` (not "update files")
+4. Check: would reverting THIS commit break anything else? (shouldn't)
 
-## PR Description Generation
+### Branching
 
-When creating a PR, generate the description from the diff:
-
-```bash
-# Get the diff summary for PR body
-git log --oneline main..HEAD
-git diff --stat main..HEAD
-
-# Template:
-## What
-# [One sentence: what changed]
-
-## Why  
-# [Context: why this change was needed]
-
-## How
-# [Key technical decisions]
-
-## Testing
-# [How this was verified]
+```
+RULE: Never commit directly to main/master
+RULE: Branch names describe the work: feat/add-auth, fix/login-timeout
+RULE: Branches live < 3 days (if longer, you're batching too much)
+RULE: Rebase before PR (clean linear history)
 ```
 
-## Changelog Automation
+### Before Creating a PR
 
-### Conventional Commits → Changelog
+Run this checklist YOURSELF before showing the PR to the user:
 
-```bash
-# Categorize commits since last tag
-git log --pretty=format:"%s" v1.2.0..HEAD | sort
-
-# Group by type:
-# feat: → ## Features
-# fix: → ## Bug Fixes  
-# perf: → ## Performance
-# BREAKING CHANGE: → ## Breaking Changes
+```
+[ ] All commits are atomic and conventional
+[ ] No fixup commits left (squash them)
+[ ] Branch is rebased on latest main
+[ ] Tests pass on the branch
+[ ] No unrelated changes snuck in
+[ ] PR description explains WHY not just WHAT
+[ ] Diff is < 400 lines (if larger, split into multiple PRs)
 ```
 
-### Automated Version Bump
+### Conventional Commit Types
 
-```bash
-# Determine version bump from commits
-# feat → minor, fix → patch, BREAKING → major
-git log --pretty=format:"%s" $(git describe --tags --abbrev=0)..HEAD
+| Type | When |
+|------|------|
+| `feat` | New capability for users |
+| `fix` | Bug that affected users |
+| `refactor` | Code change, no behavior change |
+| `test` | Adding/fixing tests only |
+| `docs` | Documentation only |
+| `chore` | Build, deps, config |
+| `perf` | Performance improvement |
 
-# Apply:
-npm version patch  # or minor/major
-git push --follow-tags
+### Bad → Good
+
+```
+BAD:  "update stuff"
+GOOD: "feat(auth): add JWT refresh token rotation"
+
+BAD:  "fix bug"  
+GOOD: "fix(checkout): prevent double-charge on timeout retry"
+
+BAD:  one commit with 15 files changed across 3 features
+GOOD: 3 commits, each touching one feature, each revertable alone
 ```
 
-## Release Management
+## Auto-Triggers
 
-### Release Checklist
+When you're about to:
+- `git add .` → STOP. Stage selectively. Read the diff.
+- `git commit -m "..."` → CHECK: is the message conventional? Is the change atomic?
+- `git push` → CHECK: is the branch rebased? Tests pass?
+- Create a PR → RUN the PR checklist above.
 
-```bash
-# 1. Ensure clean state
-git status  # must be clean
-git pull origin main
+## Why
 
-# 2. Run full test suite
-npm test && npm run lint && npm run build
-
-# 3. Update changelog
-# (automated from conventional commits)
-
-# 4. Bump version
-npm version minor -m "release: v%s"
-
-# 5. Push with tags
-git push origin main --follow-tags
-
-# 6. Create GitHub release
-gh release create v$(node -p "require('./package.json').version") \
-  --generate-notes --latest
-```
-
-## Monorepo Navigation
-
-### Finding What Changed
-
-```bash
-# Which packages changed since last release?
-git diff --name-only v1.0.0..HEAD | grep "^packages/" | cut -d/ -f2 | sort -u
-
-# Only run tests for changed packages
-CHANGED=$(git diff --name-only origin/main...HEAD | grep "^packages/" | cut -d/ -f2 | sort -u)
-for pkg in $CHANGED; do
-  cd "packages/$pkg" && npm test && cd ../..
-done
-```
-
-### Dependency-Aware Changes
-
-```bash
-# If package A changed, find all packages that depend on A
-# Then test those too (blast radius)
-grep -rl "\"package-a\"" packages/*/package.json | cut -d/ -f2
-```
-
-## Conflict Resolution Strategies
-
-### Before Resolving
-
-```bash
-# Understand what diverged
-git log --oneline --graph main..HEAD
-git log --oneline --graph HEAD..main
-
-# See which files conflict
-git diff --name-only --diff-filter=U
-```
-
-### Resolution Patterns
-
-| Conflict Type | Strategy |
-|---------------|----------|
-| Both modified same function | Understand BOTH intents, merge manually |
-| One refactored, one added | Apply addition to refactored version |
-| Package lock conflicts | Accept theirs, re-run install |
-| Auto-generated files | Regenerate after resolving source |
-
-## Commit Archaeology
-
-### Finding When/Why Something Changed
-
-```bash
-# Who last changed this line?
-git blame -L 42,42 src/auth.ts
-
-# When was this function introduced?
-git log --diff-filter=A --all -- "**/functionName*"
-
-# Full history of a file (even renames)
-git log --follow -p -- src/auth.ts
-
-# Find the commit that broke something
-git bisect start
-git bisect bad HEAD
-git bisect good v1.0.0
-# git bisect runs binary search to find the breaking commit
-```
-
-## Common Mistakes
-
-- Committing directly to main (use branch protection)
-- Merge commits that pollute history (use squash merge)
-- Not rebasing before PR review (causes unnecessary conflicts)
-- Force-pushing shared branches (data loss)
-- Huge PRs that are impossible to review (keep < 400 lines)
-- Not using conventional commits (breaks changelog automation)
-- Ignoring `.gitattributes` for binary files and line endings
+Messy git = impossible to debug, revert, or review. Disciplined git = every commit is a rollback point, every PR is reviewable, every message is searchable. This compounds over months into a codebase that's navigable by archaeology.
