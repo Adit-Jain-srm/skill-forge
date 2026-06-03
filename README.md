@@ -1,38 +1,37 @@
 # skill-forge
 
-**Production-grade AI agent skills + an autonomous engine that discovers, learns from, and creates more.**
-
-6 specialized skills covering MCP orchestration, web performance, git workflows, database design, architecture diagramming, and error resilience — plus a self-improving meta-agent that continuously expands the collection.
+**Your agent keeps using the same stale knowledge. This fixes that.**
 
 ---
 
-## Skills
+## The Problem
 
-| Skill | What It Does | Key Triggers |
-|-------|-------------|-------------|
-| [`mcp-conductor`](skills/mcp-conductor/) | Orchestrate multiple MCP servers in research/analysis pipelines | multi-source, research, combine tools |
-| [`web-perf`](skills/web-perf/) | Diagnose and fix Core Web Vitals (LCP, INP, CLS) | slow page, lighthouse, page speed, bundle size |
-| [`git-workflow`](skills/git-workflow/) | Advanced git: branching, releases, monorepos, archaeology | branching strategy, release, monorepo, git history |
-| [`db-schema`](skills/db-schema/) | Production database design: indexes, migrations, multi-tenancy | schema, migration, indexing, multi-tenant |
-| [`arch-from-code`](skills/arch-from-code/) | Generate architecture diagrams directly from codebase analysis | document architecture, dependency graph, C4 diagram, visualize |
-| [`error-resilience`](skills/error-resilience/) | Retry patterns, circuit breakers, graceful degradation, timeouts | retry, circuit breaker, timeout, resilience, error handling |
+Your AI coding agent has a fixed set of capabilities from the day you installed it. Meanwhile:
+- 20,478 skills exist on the marketplace (growing daily)
+- New workflows, patterns, and integrations launch every week
+- The agent you set up last month is already behind
 
-Each skill follows the [anatomy standard](docs/skill-anatomy.md) — actionable, code-heavy, battle-tested.
+You don't have time to browse marketplaces, read READMEs, evaluate quality, and install manually. You need an agent that **feeds itself**.
+
+## The Fix
+
+skill-forge is a self-improving meta-agent. It:
+1. **Hunts** — Discovers skills across GitHub, marketplaces, blogs, communities (not just one source)
+2. **Devours** — Reads each skill deeply, extracts the philosophy and novel techniques
+3. **Judges** — Scores quality, validates against the best, rejects mediocrity
+4. **Acts** — Installs what fills gaps, creates what doesn't exist yet
+5. **Ships** — Publishes novel skills as repos that others can install
+6. **Evolves** — Rewrites its own heuristics based on outcomes (RL-weighted)
+
+After every action, it runs a mandatory self-check: "Did I deliver quality? What to improve? Why wasn't it better? Fix NOW."
 
 ---
 
-## Quick Start
-
-<details>
-<summary><b>Cursor</b></summary>
+## Install
 
 ```bash
-npx skills add Adit-Jain-srm/skill-forge
+npx skills@latest add Adit-Jain-srm/skill-forge
 ```
-
-Or manually copy `skills/` to `~/.cursor/skills/`.
-
-</details>
 
 <details>
 <summary><b>Claude Code</b></summary>
@@ -41,77 +40,76 @@ Or manually copy `skills/` to `~/.cursor/skills/`.
 git clone https://github.com/Adit-Jain-srm/skill-forge.git
 claude --plugin-dir ./skill-forge
 ```
-
 </details>
 
 <details>
-<summary><b>Codex CLI</b></summary>
+<summary><b>Codex / Gemini / Windsurf</b></summary>
 
 ```bash
 git clone https://github.com/Adit-Jain-srm/skill-forge.git
-# Add skills/ path to your AGENTS.md or ~/.codex/skills/
+# Copy skills/ to your agent's skill directory
 ```
-
 </details>
 
-<details>
-<summary><b>Gemini CLI</b></summary>
+---
 
-```bash
-gemini skills install https://github.com/Adit-Jain-srm/skill-forge.git --path skills
-```
+## Skills Included
 
-</details>
+These compound skills solve real engineering pain, not just list features:
 
-<details>
-<summary><b>Windsurf</b></summary>
-
-Copy any `SKILL.md` from `skills/` into your Windsurf rules directory.
-
-</details>
+| Problem | Skill | What Changes |
+|---------|-------|-------------|
+| "My agent uses one tool when it should chain five" | [`mcp-conductor`](skills/mcp-conductor/) | Teaches multi-MCP orchestration pipelines |
+| "My site is slow and I don't know why" | [`web-perf`](skills/web-perf/) | Diagnoses + fixes Core Web Vitals with real code |
+| "I'm drowning in git complexity" | [`git-workflow`](skills/git-workflow/) | Branching, releases, monorepo navigation |
+| "My database design breaks at scale" | [`db-schema`](skills/db-schema/) | Production schema: indexes, migrations, multi-tenancy |
+| "Nobody knows how this codebase works" | [`arch-from-code`](skills/arch-from-code/) | Generates architecture diagrams from actual code |
+| "My code breaks in production every night" | [`error-resilience`](skills/error-resilience/) | Retry, circuit breakers, graceful degradation |
 
 ---
 
 ## The Meta-Agent
 
-The root `SKILL.md` is itself a skill — an autonomous discovery and creation engine:
+The root `SKILL.md` is itself a skill — an autonomous loop:
 
 ```
-skill-forge              — Full pipeline (discover → analyze → decide → act → learn)
-skill-forge discover     — Vacuum the internet for new skills
-skill-forge route <task> — Find the best skill for your task
-skill-forge create       — Generate and publish a new skill
-skill-forge devour       — Maximum learning + creation mode
+/skill-forge              — Full pipeline (discover → judge → act → learn → improve)
+/skill-forge discover     — Hunt across internet, not just GitHub
+/skill-forge route <task> — "What skill solves this?" → best match + invocation prompt
+/skill-forge create       — Validate-against-best → design compound skill → ship
+/skill-forge devour       — Maximum: learn everything, fill all gaps
+/skill-forge improve      — Self-check + apply all unactioned learnings
 ```
 
-It uses:
-- **Exa MCP** for semantic web search
-- **Bright Data MCP** for scraping any URL
-- **GitHub CLI** for repo discovery and publishing
-- **Reinforcement Learning** (EMA-based) to improve over time
+### Self-Check Quality Gate (runs after every action)
+
+```
+1. Did I deliver QUALITY? (not "does it work" — is it EXCELLENT?)
+2. What could be better? (there's ALWAYS something)
+3. WHY wasn't it better? (root cause your own laziness)
+4. Am I actually USING previous learnings?
+5. Compared to the BEST — am I even close?
+```
 
 ---
 
-## Documentation
+## Design Philosophy
 
-| Doc | Purpose |
-|-----|---------|
-| [Getting Started](docs/getting-started.md) | Installation for all platforms |
-| [Skill Anatomy](docs/skill-anatomy.md) | How skills are structured |
-| [Contributing](CONTRIBUTING.md) | How to add new skills |
+Inspired by engineering fundamentals, not AI hype:
 
----
+> "The rate of feedback is your speed limit." — *The Pragmatic Programmer*
 
-## Quality Bar
+> "Invest in the design of the system every day." — *Kent Beck*
 
-Every skill is validated against:
-- Under 500 lines (progressive disclosure for depth)
-- Valid YAML frontmatter with trigger conditions
-- Actionable code examples (not pseudocode)
-- Common mistakes section (what NOT to do)
-- No vague advice — every instruction answers "what do I DO?"
+> "The best modules are deep: a lot of functionality through a simple interface." — *John Ousterhout*
 
-Run validation: `node scripts/validate-skill.js skills/<name>`
+**Applied to skills:**
+- Each skill solves a NAMED PROBLEM (not "a tool that does X")
+- Compound capabilities > atomic features
+- Self-improvement is mandatory, not optional
+- Validate against the best before shipping anything
+- Search for PAIN POINTS (Twitter, Reddit, HN, Discord) not just "skills"
+- The internet is the perimeter. NO LIMITATIONS TO LEARNING.
 
 ---
 
@@ -119,26 +117,38 @@ Run validation: `node scripts/validate-skill.js skills/<name>`
 
 ```
 skill-forge/
-├── SKILL.md              # Meta-agent (discovery + creation engine)
-├── skills/               # The skill collection
+├── SKILL.md              # Meta-agent (self-improving discovery + creation engine)
+├── skills/               # Compound skills that solve real pain
 │   ├── mcp-conductor/    # Multi-MCP orchestration
-│   ├── web-perf/         # Core Web Vitals optimization
-│   ├── git-workflow/     # Advanced git workflows
-│   └── db-schema/        # Production database design
-├── scripts/              # Automation (discovery, analysis, validation, RL)
-├── memory/               # Persistent state (RL weights, learnings, gaps)
-├── templates/            # Templates for new skill repos
-└── docs/                 # Setup guides + contributing standards
+│   ├── web-perf/         # Core Web Vitals fix
+│   ├── git-workflow/     # Git complexity tamed
+│   ├── db-schema/        # Production database design
+│   ├── arch-from-code/   # Architecture from code analysis
+│   └── error-resilience/ # Production error patterns
+├── scripts/              # Discovery, analysis, validation, RL
+├── memory/               # Persistent learning (RL state, patterns, gaps)
+├── docs/                 # Setup guides, skill anatomy, contributing
+└── CONTRIBUTING.md       # Quality bar for new skills
 ```
 
 ---
 
-## Philosophy
+## Quality Bar
 
-- **Anti-laziness:** If it lacks something — find it, use it. If nothing seems missing — look harder.
-- **No limitations:** Follow trails wherever they lead. Blog → paper → code → community → synthesis.
-- **Quality over speed:** One excellent skill > ten mediocre ones.
-- **User perspective:** Every skill must make the agent MEASURABLY better at the task.
+Every skill passes automated validation (`node scripts/validate-skill.js`) checking:
+- Valid YAML frontmatter with trigger conditions
+- Under 500 lines (progressive disclosure for depth)
+- Real code examples (not pseudocode)
+- Common mistakes section
+- Verification checklist (how to prove it worked)
+
+Manual bar: **Would I star this if I found it? Would I switch from what I currently use?**
+
+---
+
+## Contribute
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Key rule: every skill must solve a NAMED PROBLEM, not describe a feature.
 
 ---
 
