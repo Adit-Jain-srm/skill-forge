@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-06-04T02:50:00+05:30",
+  "total_learnings": 8,
+  "patterns": [
+    {"pattern": "lifecycle_slash_commands", "description": "Map skills to development phases via slash commands (/spec, /plan, /build, /test, /review, /ship). Users get instant clarity.", "source": "addyosmani/agent-skills", "confidence": 0.95},
+    {"pattern": "skill_as_trainable_state", "description": "Treat SKILL.md as trainable parameters of a frozen agent. Use rollout→reflect→aggregate→select→update→evaluate loop to improve skills programmatically.", "source": "microsoft/SkillOpt", "confidence": 0.9},
+    {"pattern": "multi_platform_install_docs", "description": "Always provide install instructions for ALL major platforms (Cursor, Claude Code, Codex CLI, Gemini CLI) in collapsible sections. Maximizes reach.", "source": "addyosmani/agent-skills", "confidence": 0.9},
+    {"pattern": "numbers_in_description", "description": "Include quantified scope in repo description: '150+ Skills', '90+ modules', '100+ databases'. Numbers signal depth and value.", "source": "multiple_top_repos", "confidence": 0.95},
+    {"pattern": "security_skills_high_demand", "description": "Offensive security skills (red team, OSINT, pentesting) consistently get 1K-3K stars. Underserved niche with high demand.", "source": "raptor/Claude-Red/Claude-OSINT", "confidence": 0.85},
+    {"pattern": "meta_skills_novel_category", "description": "Skills that improve OTHER skills (SkillOpt, agent-skill-creator) are a novel high-value category. The 'skill about skills' niche is growing.", "source": "microsoft/SkillOpt + FrancyJGLisboa", "confidence": 0.85},
+    {"pattern": "awesome_list_dominates_stars", "description": "Curated awesome-lists of skills get 10K-146K stars. But require massive ongoing curation. Only pursue if committed to maintenance.", "source": "multiple_awesome_repos", "confidence": 0.9},
+    {"pattern": "domain_authority_beats_breadth", "description": "Deep expertise in one domain (science: 27K, security: 1.9K) beats shallow coverage of many domains. Go DEEP in niches.", "source": "K-Dense-AI/scientific-agent-skills", "confidence": 0.9}
+  ],
+  "philosophies": [
+    {"text": "Skills encode the workflows that senior engineers use — packaged so AI agents follow them consistently", "source": "addyosmani/agent-skills"},
+    {"text": "Treat the skill document as the trainable state of a frozen agent, train it with the discipline of weight-space optimization", "source": "microsoft/SkillOpt"},
+    {"text": "The deployed artifact is a compact best_skill.md that runs against the unchanged target model — zero inference-time cost", "source": "microsoft/SkillOpt"},
+    {"text": "One SKILL.md, every platform — cross-platform is the standard, not the exception", "source": "FrancyJGLisboa/agent-skill-creator"}
+  ],
+  "techniques": [
+    {"name": "SkillOpt training loop", "description": "rollout → reflect → aggregate → select → update → evaluate. Bounded edits (add/delete/replace). Validation gate. Textual learning rate.", "source": "microsoft/SkillOpt"},
+    {"name": "Slash command mapping", "description": "Define 5-7 slash commands that map to workflow phases. Skills auto-activate based on current activity.", "source": "addyosmani/agent-skills"}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "skill-forge",
+  "version": "1.0.0",
+  "description": "Autonomous self-improving AI agent that discovers, learns from, creates, and publishes AI agent skills",
+  "keywords": ["cursor-skill", "agent-skills", "ai-skill", "cursor", "ai-agent", "self-improving", "skill-discovery", "mcp"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Adit-Jain-srm/skill-forge"
+  },
+  "author": "Adit-Jain-srm",
+  "license": "MIT",
+  "files": ["SKILL.md", "reference.md", "scripts/", "templates/", "README.md"]
+}
