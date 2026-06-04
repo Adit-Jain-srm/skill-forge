@@ -30,3 +30,17 @@ Stop. Zoom out. Before touching this code, explain:
 - Read FIRST, explain SECOND, modify THIRD. Never modify what you don't understand.
 - If you can't explain it simply, you don't understand it well enough to change it safely.
 - Cite specific file paths and line numbers when explaining relationships.
+
+## Example
+
+```bash
+# Before modifying auth.ts, zoom out:
+# 1. What calls auth.ts?
+grep -r "from.*auth" src/ --include="*.ts" -l
+# 2. What does auth.ts import?
+head -20 src/auth.ts | grep "import"
+# 3. What tests cover this?
+find . -name "*auth*test*"
+```
+
+Then explain: "auth.ts is the middleware layer between routes/ and the JWT library. It's called by 12 route handlers. Breaking its interface breaks all protected endpoints."
