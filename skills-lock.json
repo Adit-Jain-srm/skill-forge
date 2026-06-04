@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "skill-forge": {
+      "source": "Adit-Jain-srm/skill-forge",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "337072de8948b424d7ebcc4a4a571f28d8aced49a80fa7a3eaeabf7e693323a9"
+    }
+  }
+}

@@ -85,11 +85,6 @@ switch (command) {
     run(`node "${path.join(SCRIPTS, 'self-improve.js')}" --mode full`);
     break;
 
-  case 'publish':
-    console.log('\n📦 Running publish pipeline...\n');
-    run(`node "${path.join(SCRIPTS, 'publish.js')}" --all`);
-    break;
-
   case 'route':
     const task = process.argv.slice(3).join(' ');
     if (!task) { console.error('Usage: skill-forge route "your task description"'); process.exit(1); }
@@ -104,10 +99,9 @@ skill-forge — Autonomous Skill Meta-Agent CLI
 Commands:
   discover      Search for new skills across all sources
   validate      Validate all skills against quality bar
-  test          Run the full test suite
+  test          Run the full 71-test suite
   status        Show current state (skills, learnings, stars)
   self-check    Run self-improvement analysis
-  publish       Run marketplace submission pipeline
   route <task>  Find best skill for a task
 
 Example:
