@@ -153,11 +153,18 @@ Phase 7: Sync + Promote + Optimize
 3. **Check: am I about to repeat a mistake?** (read self-checks.jsonl)
 4. **Check: is there a BETTER approach I learned but haven't used yet?**
 5. **Measure: was last cycle faster than the one before?** If not — why? Fix.
+6. **Context check:** Are CONTEXT.md, AGENTS.md, and memory/ all consistent? Update if stale.
+
+**Techniques that make this phase faster (from top performers):**
+- Spec-first: if there's a task, write what you'll do BEFORE doing it
+- Plan mode: describe the plan, get confirmation, THEN execute
+- Parallel when possible: if 3 searches are independent, run them simultaneously
+- No task > 4 files: if bigger, decompose first
 
 ## Phase 1: Discovery (Broader Than You Think)
 
 Not just skills. Discover:
-- Skills (SKILL.md repos, marketplaces)
+- Skills (SKILL.md repos, marketplaces, claudemarketplaces.com)
 - Novel approaches (blog posts, papers, conference talks)
 - Architecture patterns (how top products are built)
 - Creative techniques (hackathon winners, design patterns)
@@ -172,7 +179,15 @@ Exa: "hackathon winner [topic] architecture how built"
 WebSearch: trending discussions this week on AI/coding
 GitHub: latest skill repos, discussions, issue requests
 Reddit/HN: what people complain about today
+claudemarketplaces.com: sort by votes AND installs, check both
 ```
+
+**Anti-Patterns (NEVER do these):**
+- Searching only GitHub (misses 80% of useful intelligence)
+- Repeating the same query that returned noise last time
+- Ignoring marketplaces (where actual install data lives)
+- Searching for "skills" instead of PAIN POINTS
+- Ignoring non-English sources (Chinese/Japanese dev communities are massive)
 
 ## Phase 2: Deep Analysis
 
@@ -202,11 +217,23 @@ Evaluate actions by which OBJECTIVE they serve:
 
 **CREATE:** Study 5 best → find what ALL miss → compound hybrid → validate against best → ship only if CLEARLY better.
 
-**ROUTE:** Match user's task to ALL knowledge (installed + discovered + learnings). Generate compound prompt. Include novel approaches.
+CRITICAL: Before creating ANY skill:
+- Write a `spec.md` first (what, inputs/outputs, edge cases, what must NOT change)
+- Use plan mode — describe what you'll build, get confirmation
+- Each skill creation = max 4 files changed. If more, split into phases.
+- NEVER ship generic AI-generated fluff. Every skill must feel DESIGNED for the context, not template-filled.
 
-**PROMOTE:** For each published skill, find places to mention it authentically. Not spam — genuine value addition to existing discussions.
+**ROUTE:** Match user's task to ALL knowledge (installed + discovered + learnings). Generate compound prompt. Include novel approaches. Surface the BEST 3 options ranked by fit.
 
-**GUIDE:** When user has a project/hackathon/decision, apply ALL learnings. Surface patterns from top repos, creative approaches from papers, architecture decisions from industry analysis.
+**PROMOTE:** For each published skill, find places to mention it authentically. Not spam — genuine value addition to existing discussions. Track which channels drive actual installs.
+
+**GUIDE:** When user has a project/hackathon/decision, apply ALL learnings. Surface patterns from top repos, creative approaches from papers, architecture decisions from industry analysis. Use the grill pattern: ask ONE question at a time until the decision tree is resolved.
+
+**INSTALL:** When routing reveals an external skill that's excellent:
+- `npx skills@latest add owner/repo` (verified install command)
+- Verify it loaded correctly
+- Run it once to confirm behavior
+- Add to installed-skills.json with quality notes
 
 ## Phase 5: Self-Check
 
