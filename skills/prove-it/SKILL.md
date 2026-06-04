@@ -1,11 +1,10 @@
 ---
 name: prove-it
 description: >-
-  Prevents false progress. Before claiming ANY task is done, forces the agent to
-  provide EVIDENCE — run tests, show output, demonstrate the fix works. Eliminates
-  the #1 agent failure: "says done but isn't". Use when completing any task, fixing
-  bugs, implementing features, or whenever about to say "done" or "fixed" or
-  "implemented". Auto-triggers before any completion claim.
+  Use when completing any task, fixing bugs, implementing features, or whenever
+  about to claim work is done. Also use when the agent says "fixed", "done",
+  "implemented", "all set", or "should work now" without showing evidence.
+  Auto-triggers before any completion claim.
 ---
 
 Never say "done" without proof. Never say "fixed" without running it. Never say "implemented" without showing it works.
@@ -77,3 +76,25 @@ Confirmed: feature works.
 The #1 agent failure pattern (2026): "says done but isn't." Users report spending MORE time verifying false completions than if they'd done it themselves. This single discipline — prove before claiming — eliminates the entire category of wasted cycles.
 
 > "Claiming work is complete without verification is dishonesty, not efficiency."
+
+## Red Flags — STOP if you think any of these
+
+- "The change is so small it obviously works"
+- "I'll verify in the next step"
+- "Based on my understanding of the code..."
+- "It should work because the logic is sound"
+- "The tests passed earlier, so this is fine"
+- "Let me just confirm it's done" (without running anything)
+
+**All of these mean: you're about to claim without evidence. Run the verification FIRST.**
+
+## Rationalizations (countered)
+
+| Excuse | Reality |
+|--------|---------|
+| "It's a one-line change" | One-line changes break production. Run the test. |
+| "I already verified mentally" | Mental verification = no verification. Execute it. |
+| "The test suite takes too long" | Run the RELEVANT test, not all of them. No excuse. |
+| "It's just a config change" | Config errors are the hardest to debug. Prove it loaded. |
+| "I'll run tests after I finish everything" | By then you won't know which change broke what. Prove EACH. |
+| "The user can verify" | YOU verify. Don't outsource your responsibility. |

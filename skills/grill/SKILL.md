@@ -1,11 +1,10 @@
 ---
 name: grill
 description: >-
-  Before creating anything, get grilled about it. Interview yourself relentlessly
-  about every decision until shared understanding is reached. Prevents the #1
-  failure: building the wrong thing. Use when about to create a skill, start a
-  feature, design a system, or plan any non-trivial work. Also use when user says
-  grill me, question my plan, challenge this, stress-test, or validate my thinking.
+  Use when about to create a skill, start a feature, design a system, or plan
+  any non-trivial work. Also use when user says grill me, question my plan,
+  challenge this, stress-test, or validate my thinking. Prevents building the
+  wrong thing by resolving decisions before implementation.
 ---
 
 Before building ANYTHING, walk down the decision tree. Resolve every branch.
