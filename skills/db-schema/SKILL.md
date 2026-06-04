@@ -1,18 +1,38 @@
 ---
 name: db-schema
 description: >-
-  Design production-ready database schemas with proper normalization, indexing,
-  migration safety, and multi-tenant patterns. Use when creating tables, designing
-  data models, planning migrations, optimizing queries, choosing between SQL/NoSQL,
-  or when the user mentions database schema, table design, migration, indexing
-  strategy, query optimization, Prisma, Drizzle, or data modeling.
+  Enforce schema discipline: queries-first design, index-every-filter, safe migrations,
+  verify-at-scale thinking. Prevents the common failure of designing schemas for demos
+  that break in production. Use when creating tables, planning migrations, designing
+  data models, or when user mentions database, schema, migration, indexing, multi-tenant.
 ---
 
 # Database Schema Design
 
-Production-grade database schema design and migration guidance.
+## Persistence
 
-## Schema Design Checklist
+ACTIVE on every schema change. Every CREATE TABLE, every ALTER, every migration. Think at scale before writing DDL.
+
+## The Discipline
+
+Before writing ANY schema:
+
+```
+1. QUERIES FIRST — what queries will run against this? (schema serves queries, not the other way around)
+2. SCALE QUESTION — what happens at 10M rows? 100M? Does this still work?
+3. INDEX PLAN — every WHERE, JOIN, ORDER BY gets an index. No exceptions.
+4. MIGRATION SAFETY — can this ALTER run without locking the table for minutes?
+5. VERIFY — explain analyze the critical queries. Prove they use indexes.
+```
+
+## Rules (never break)
+
+- Never CREATE TABLE without knowing the top 5 queries it serves
+- Never deploy a migration without testing against production-sized data
+- Never use FLOAT for money (DECIMAL or integer cents)
+- Never skip explicit `created_at`/`updated_at` on any table
+- Never add a column with DEFAULT on a large table (locks it)
+- Never DROP COLUMN in one step (stop writing → deploy → then drop)
 
 Before creating any table:
 

@@ -1,20 +1,34 @@
 ---
 name: web-perf
 description: >-
-  Optimize web application performance for Core Web Vitals (LCP, INP, CLS).
-  Diagnose slow pages, fix render-blocking resources, optimize images, implement
-  code splitting, and configure caching. Use when the user mentions performance,
-  page speed, slow loading, LCP, INP, CLS, bundle size, lighthouse score,
-  web vitals, or asks to make their site faster.
+  Diagnose and fix web performance through a disciplined measure-first loop.
+  Forces evidence-based optimization: measure → identify bottleneck → fix ONE thing →
+  re-measure → repeat. Prevents guessing. Use when pages load slowly, user mentions
+  performance, LCP, INP, CLS, lighthouse, bundle size, or "make it faster".
 ---
 
 # Web Performance Optimization
 
-Systematic approach to diagnosing and fixing web performance issues, targeting Core Web Vitals.
+## Persistence
 
-## Quick Diagnosis Checklist
+ACTIVE whenever performance is the goal. Never optimize without measuring first. Never declare "faster" without before/after numbers.
 
-Before optimizing, measure. Run these in order:
+## The Loop (never skip steps)
+
+```
+1. MEASURE — get baseline numbers (Lighthouse, bundle size, TTFB)
+2. IDENTIFY — which metric is worst? (LCP? INP? CLS? TTFB?)
+3. DIAGNOSE — what's causing THAT specific metric to be bad?
+4. FIX ONE THING — smallest change that moves the needle
+5. RE-MEASURE — did the number actually improve? By how much?
+6. REPEAT — next worst metric. Never fix two things at once.
+```
+
+## Why This Order Matters
+
+Without measuring first: you optimize something that wasn't the bottleneck. Wasted work.
+Without re-measuring: you "optimized" but might have made it worse (happens more than you think).
+Fixing two things at once: you don't know which one helped (or hurt).
 
 ```bash
 # Lighthouse CI (if available)
