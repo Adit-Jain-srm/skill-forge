@@ -1,7 +1,8 @@
 {
   "name": "skill-forge",
   "version": "1.1.0",
-  "description": "Autonomous self-improving AI agent that discovers, learns from, creates, and publishes AI agent skills. 14 behavioral skills + meta-agent + CLI.",
+  "description": "Self-improving intelligence amplifier. 16 behavioral skills + autonomous discovery engine. Devours knowledge, creates skills, ships repos.",
+  "main": "bin/skill-forge.js",
   "bin": {
     "skill-forge": "./bin/skill-forge.js"
   },
@@ -9,14 +10,55 @@
     "test": "node tests/run-tests.js",
     "validate": "node bin/skill-forge.js validate",
     "discover": "node bin/skill-forge.js discover",
-    "status": "node bin/skill-forge.js status"
+    "status": "node bin/skill-forge.js status",
+    "publish": "node bin/skill-forge.js publish",
+    "monetize": "node bin/skill-forge.js monetize"
   },
-  "keywords": ["cursor-skill", "agent-skills", "ai-skill", "cursor", "ai-agent", "self-improving", "skill-discovery", "mcp", "claude-code"],
+  "keywords": [
+    "cursor-skill",
+    "agent-skills",
+    "ai-skill",
+    "cursor",
+    "claude-code",
+    "codex",
+    "ai-agent",
+    "self-improving",
+    "skill-discovery",
+    "mcp",
+    "intelligence-amplifier",
+    "behavioral-skills",
+    "meta-agent"
+  ],
+  "author": {
+    "name": "Adit Jain",
+    "email": "aditjain2005@gmail.com",
+    "url": "https://github.com/Adit-Jain-srm"
+  },
+  "homepage": "https://github.com/Adit-Jain-srm/skill-forge",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Adit-Jain-srm/skill-forge"
+    "url": "https://github.com/Adit-Jain-srm/skill-forge.git"
   },
-  "author": "Adit-Jain-srm",
+  "bugs": {
+    "url": "https://github.com/Adit-Jain-srm/skill-forge/issues"
+  },
   "license": "MIT",
-  "files": ["SKILL.md", "skills/", "scripts/", "bin/", "templates/", "docs/", "evals/", "README.md", "CONTEXT.md", "AGENTS.md", "CLAUDE.md"]
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "SKILL.md",
+    "skills/",
+    "scripts/",
+    "bin/",
+    "templates/",
+    "docs/",
+    "evals/",
+    "README.md",
+    "CONTEXT.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md"
+  ]
 }
