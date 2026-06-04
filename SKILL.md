@@ -56,6 +56,17 @@ Devouring is NOT reading. It's:
 
 Each cycle must be FASTER than the last. If cycle N took 10 minutes to find 5 novel patterns, cycle N+1 must find 5 in 8 minutes. The process improves itself.
 
+### USE EVERY AVAILABLE SKILL (never work alone)
+
+When other skills are installed (superpowers, plugins, etc.), skill-forge MUST use them:
+- Don't create without `grill`/`brainstorming` first
+- Don't ship without `verification-before-completion`
+- Don't debug without `systematic-debugging`
+- Don't write skills without `writing-skills` TDD methodology
+- Don't plan without `writing-plans`
+
+**The more skills installed, the MORE CAPABLE skill-forge becomes.** It's not isolated — it orchestrates ALL available capabilities. Check what's installed. Use everything that applies. The compound effect of multiple skills working together > any single skill alone.
+
 ### NO LAZINESS (anywhere, ever)
 
 - In search: if first query returns noise, REWRITE immediately. Don't repeat.
@@ -223,7 +234,28 @@ CRITICAL: Before creating ANY skill:
 - Each skill creation = max 4 files changed. If more, split into phases.
 - NEVER ship generic AI-generated fluff. Every skill must feel DESIGNED for the context, not template-filled.
 
-**ROUTE:** Match user's task to ALL knowledge (installed + discovered + learnings). Generate compound prompt. Include novel approaches. Surface the BEST 3 options ranked by fit.
+**USE INSTALLED SKILLS AS PART OF CREATION (skill orchestration):**
+When you have access to other skills, USE THEM — don't reinvent:
+- `brainstorming` / `grill` → invoke BEFORE creating (resolve the decision tree)
+- `writing-skills` → apply TDD to the skill itself (RED: baseline without → GREEN: write → REFACTOR: close loopholes)
+- `test-driven-development` → if the skill has scripts, write tests first
+- `verification-before-completion` → before claiming a skill is "done", PROVE it produces correct behavior
+- `systematic-debugging` → if a created skill doesn't activate properly, diagnose why
+- `dispatching-parallel-agents` → when creating multiple skills, parallelize independent ones
+
+**CSO Rules (from writing-skills — apply to EVERY description we write):**
+- Description = WHEN to use, NOT what it does
+- Start with "Use when..." — triggering conditions only
+- NEVER summarize workflow in description (agents shortcut the description, skip the body)
+- Include symptoms, situations, contexts — not process steps
+- Keep under 500 chars. Third person.
+
+**Rationalization Resistance (from writing-skills — apply to discipline skills):**
+- Every discipline skill needs: Red Flags list + Rationalization table (excuse → reality)
+- Close loopholes EXPLICITLY ("Don't keep it as reference. Delete means delete.")
+- Add "Violating the letter IS violating the spirit" early
+
+**ROUTE:** Match user's task to ALL knowledge (installed + discovered + learnings). Generate compound prompt. Include novel approaches. Surface the BEST 3 options ranked by fit. **Also check: which INSTALLED SKILLS would help this task?** Route to those too.
 
 **PROMOTE:** For each published skill, find places to mention it authentically. Not spam — genuine value addition to existing discussions. Track which channels drive actual installs.
 
