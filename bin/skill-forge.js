@@ -90,6 +90,11 @@ switch (command) {
     run(`node "${path.join(SCRIPTS, 'publish.js')}" --all`);
     break;
 
+  case 'monetize':
+    console.log('\n💰 Capafy monetization plan...\n');
+    run(`node "${path.join(SCRIPTS, 'capafy-publish.js')}" --list`);
+    break;
+
   case 'route':
     const task = process.argv.slice(3).join(' ');
     if (!task) { console.error('Usage: skill-forge route "your task description"'); process.exit(1); }
