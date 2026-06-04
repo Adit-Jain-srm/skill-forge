@@ -59,15 +59,16 @@ git clone https://github.com/Adit-Jain-srm/skill-forge.git
 |---------|-------|-----------------|
 | "My agent shows me buggy first drafts" | [`self-review`](skills/self-review/) | Reviews own code BEFORE presenting. Catches bugs first-pass. |
 | "The agent doesn't speak my project's language" | [`context-builder`](skills/context-builder/) | Builds CONTEXT.md shared vocabulary. 50-75% token reduction. |
+| "My agent says 'done' but it's NOT actually done" | [`prove-it`](skills/prove-it/) | Forces evidence before any completion claim. No proof = no "done". |
 | "Something is broken and I don't know why" | [`diagnose`](skills/diagnose/) | Forced loop: reproduce → minimise → hypothesise → instrument → fix → test |
 | "I need to continue this work later" | [`handoff`](skills/handoff/) | Compacts session into handoff doc another agent can pick up instantly |
 | "I'm lost in unfamiliar code" | [`zoom-out`](skills/zoom-out/) | Forces perspective: what system is this, who calls it, what breaks if it changes |
 | "My agent uses one tool when it should chain five" | [`mcp-conductor`](skills/mcp-conductor/) | Multi-MCP orchestration: search → scrape → analyze → synthesize |
 | "My git history is an unreadable mess" | [`git-workflow`](skills/git-workflow/) | Disciplines: atomic commits, conventional messages, PR readiness |
-| "My site is slow and I don't know why" | [`web-perf`](skills/web-perf/) | Diagnoses + fixes Core Web Vitals with production code |
+| "My site is slow and I don't know why" | [`web-perf`](skills/web-perf/) | Measure-first loop: baseline → identify → fix ONE → re-measure |
 | "My code breaks in production every night" | [`error-resilience`](skills/error-resilience/) | Retry, circuit breakers, timeouts, graceful degradation |
 | "Nobody knows how this codebase works" | [`arch-from-code`](skills/arch-from-code/) | Generates Mermaid/C4 diagrams from actual codebase analysis |
-| "My database design breaks at scale" | [`db-schema`](skills/db-schema/) | Production schema: indexes, migrations, multi-tenancy |
+| "My database design breaks at scale" | [`db-schema`](skills/db-schema/) | Queries-first discipline: scale-question before every DDL |
 | "First-time setup is confusing" | [`setup`](skills/setup/) | Configures preferences all other skills use |
 
 ---
