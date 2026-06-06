@@ -112,12 +112,20 @@
           "outcome": "good",
           "details": null,
           "timestamp": "2026-06-06T23:06:44.999Z"
+        },
+        {
+          "id": "test-skill-1780788520295",
+          "task": "unit test",
+          "outcome": "good",
+          "details": null,
+          "timestamp": "2026-06-06T23:28:40.295Z"
         }
       ],
       "deltas": [],
       "current_version": 0,
-      "total_uses": 11,
+      "total_uses": 12,
       "quality_trend": [
+        1,
         1,
         1,
         1,
@@ -130,9 +138,36 @@
         1,
         1
       ]
+    },
+    "skill-forge": {
+      "outcomes": [
+        {
+          "id": "skill-forge-1780788403829",
+          "task": "devour competing self-improving skills",
+          "outcome": "good",
+          "details": "Found promotion pattern (637-star peterskoett): auto-promote proven learnings to CLAUDE.md. Our system captures but doesnt promote. Immediate improvement opportunity.",
+          "timestamp": "2026-06-06T23:26:43.829Z"
+        }
+      ],
+      "deltas": [],
+      "current_version": 0,
+      "total_uses": 1,
+      "quality_trend": [
+        1
+      ]
     }
   },
-  "total_records": 14,
+  "total_records": 16,
   "total_deltas_applied": 0,
-  "total_rollbacks": 0
+  "total_rollbacks": 0,
+  "promotions": [
+    {
+      "skill": "test-skill",
+      "uses": 11,
+      "quality_rate": 1,
+      "recommendation": "Skill \"test-skill\" has been used 11 times with 100% quality. Consider promoting its key pattern to CLAUDE.md as a permanent rule.",
+      "proposed_at": "2026-06-06T23:28:31.585Z",
+      "status": "proposed"
+    }
+  ]
 }

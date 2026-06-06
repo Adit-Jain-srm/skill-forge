@@ -316,6 +316,45 @@ function evaluateDelta(skillName, deltaId) {
 
 // --- Apply / Rollback ---
 
+// --- Phase 7: PROMOTE (Auto-promote proven learnings) ---
+
+const PROMOTION_THRESHOLD = 3;
+
+function checkPromotions() {
+  const state = ensureState();
+  const promotions = [];
+
+  for (const [skillName, skillState] of Object.entries(state.skills)) {
+    if (skillState.total_uses < PROMOTION_THRESHOLD) continue;
+
+    const trend = skillState.quality_trend || [];
+    const recentGoodRate = trend.slice(-5).filter(s => s >= 0.8).length / Math.min(trend.length, 5);
+
+    if (recentGoodRate >= 0.8) {
+      const alreadyPromoted = (state.promotions || []).find(p => p.skill === skillName);
+      if (!alreadyPromoted) {
+        promotions.push({
+          skill: skillName,
+          uses: skillState.total_uses,
+          quality_rate: recentGoodRate,
+          recommendation: `Skill "${skillName}" has been used ${skillState.total_uses} times with ${(recentGoodRate * 100).toFixed(0)}% quality. Consider promoting its key pattern to CLAUDE.md as a permanent rule.`
+        });
+      }
+    }
+  }
+
+  if (promotions.length > 0) {
+    if (!state.promotions) state.promotions = [];
+    for (const p of promotions) {
+      state.promotions.push({ ...p, proposed_at: new Date().toISOString(), status: 'proposed' });
+    }
+    saveJson(STATE_FILE, state);
+    appendLog({ event: 'promotions_proposed', count: promotions.length, skills: promotions.map(p => p.skill) });
+  }
+
+  return promotions;
+}
+
 function applyDelta(skillName, deltaId) {
   const state = ensureState();
   const skillState = state.skills[skillName];
@@ -470,6 +509,8 @@ function main() {
   } else if (args.includes('--status')) {
     ensureLogFile();
     const status = getStatus();
+    const promotions = checkPromotions();
+    if (promotions.length > 0) status.pending_promotions = promotions;
     console.log(JSON.stringify(status, null, 2));
 
   } else if (args.includes('--evaluate')) {

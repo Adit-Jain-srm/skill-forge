@@ -67,3 +67,4 @@ After every action, the agent runs a mandatory self-check (see root SKILL.md Pha
 - Memory index must be rebuilt after changing learnings: `node scripts/index-memory.js`
 - SkillOpt records outcomes: `node scripts/skillopt.js --record --skill <name> --task "..." --outcome <good|poor|mixed>`
 - Publishing target: GitHub under `Adit-Jain-srm` org
+- Context compaction survival: hooks are ineffective post-compaction; behavioral self-enforcement (recite rules at checkpoints, re-read key files) is the only reliable countermeasure
