@@ -1,7 +1,7 @@
 {
   "name": "skill-forge",
-  "version": "1.1.0",
-  "description": "Self-improving intelligence amplifier. 16 behavioral skills + autonomous discovery engine. Devours knowledge, creates skills, ships repos.",
+  "version": "1.2.0",
+  "description": "Self-improving intelligence amplifier: 16 behavioral AI agent skills + TF-IDF routing + SkillOpt loop. Works in Cursor, Claude Code, Codex, Gemini, Copilot.",
   "main": "bin/skill-forge.js",
   "bin": {
     "skill-forge": "./bin/skill-forge.js"
