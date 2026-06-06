@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0",
+  "last_updated": null,
+  "total_cycles": 0,
+  "epsilon": 0.25,
+  "source_weights": {
+    "github_topics": { "weight": 0.5, "hits": 0, "novel_finds": 0 },
+    "exa_mcp": { "weight": 0.5, "hits": 0, "novel_finds": 0 },
+    "web_search": { "weight": 0.5, "hits": 0, "novel_finds": 0 }
+  },
+  "category_weights": {},
+  "creation_success": {
+    "total_published": 0,
+    "total_stars": 0,
+    "avg_time_to_first_star_hours": null,
+    "avg_star_velocity_per_week": 0,
+    "best_performing": null,
+    "worst_performing": null
+  },
+  "routing_accuracy": {
+    "total_routes": 0,
+    "successful_routes": 0,
+    "accuracy": 0.0
+  },
+  "quality_indicators": {
+    "solves_specific_pain": { "weight": 0.9, "signal_count": 0 }
+  },
+  "reputation_metrics": {
+    "total_repos": 0,
+    "total_stars": 0,
+    "total_forks": 0,
+    "total_issues": 0,
+    "star_velocity_per_week": 0
+  },
+  "learnings": []
+}

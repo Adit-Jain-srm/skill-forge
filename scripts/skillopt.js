@@ -18,6 +18,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const { ensureMemoryInitialized } = require('./lib/memory-utils');
+
+ensureMemoryInitialized();
 
 const MEMORY_DIR = path.join(__dirname, '..', 'memory');
 const SKILLS_DIR = path.join(__dirname, '..', 'skills');

@@ -18,6 +18,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const { ensureMemoryInitialized, loadMemoryFile } = require('./lib/memory-utils');
+
+ensureMemoryInitialized();
 
 const MEMORY_DIR = path.join(__dirname, '..', 'memory');
 const CURSOR_SKILLS_DIR = path.join(process.env.HOME || process.env.USERPROFILE, '.cursor', 'skills');

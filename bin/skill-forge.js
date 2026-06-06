@@ -40,6 +40,14 @@ function quiet(cmd) {
 }
 
 switch (command) {
+  case 'init':
+    console.log('\n Initializing skill-forge memory...\n');
+    const { ensureMemoryInitialized } = require(path.join(SCRIPTS, 'lib', 'memory-utils'));
+    ensureMemoryInitialized();
+    console.log('  Memory files initialized from defaults/');
+    console.log('  Run `skill-forge status` to verify.\n');
+    break;
+
   case 'discover':
     console.log('\n🔍 Running discovery engine...\n');
     run(`node "${path.join(SCRIPTS, 'discover.js')}"`);
@@ -66,7 +74,9 @@ switch (command) {
     break;
 
   case 'status':
-    console.log('\n📊 skill-forge status\n');
+    console.log('\n skill-forge status\n');
+    const { ensureMemoryInitialized: initMem } = require(path.join(SCRIPTS, 'lib', 'memory-utils'));
+    initMem();
     const skills = fs.readdirSync(SKILLS, { withFileTypes: true }).filter(d => d.isDirectory());
     const rl = JSON.parse(fs.readFileSync(path.join(MEMORY, 'rl-state.json'), 'utf8'));
     const published = JSON.parse(fs.readFileSync(path.join(MEMORY, 'published.json'), 'utf8'));
@@ -107,6 +117,7 @@ switch (command) {
 skill-forge — Autonomous Skill Meta-Agent CLI
 
 Commands:
+  init          Initialize memory files (run after first install)
   discover      Search for new skills across all sources
   validate      Validate all skills against quality bar
   test          Run the full test suite
@@ -116,6 +127,7 @@ Commands:
   route <task>  Find best skill for a task
 
 Example:
+  npx skill-forge init
   npx skill-forge discover
   npx skill-forge route "optimize my React app performance"
   npx skill-forge validate
