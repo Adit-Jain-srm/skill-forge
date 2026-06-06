@@ -49,3 +49,20 @@ This is a self-improving skill collection. The meta-agent (root SKILL.md) discov
 ### Self-Check Protocol
 
 After every action, the agent runs a mandatory self-check (see root SKILL.md Phase 5). This is not optional.
+
+## Learned User Preferences
+
+- No lazy implementation — throw compute at quality, never cut corners
+- Use installed skills as a pipeline (route → grill → create → prove-it → self-review)
+- README frames skills as PROBLEMS not features
+
+## Learned Workspace Facts
+
+- Git push requires HTTP/1.1: `git -c http.version=HTTP/1.1 push` (HTTP/2 fails intermittently)
+- Permanent Cursor install uses directory junction: `~/.cursor/skills/skill-forge` → this repo
+- Tests must pass (98 tests): `node tests/run-tests.js`
+- All skills must validate with 0 warnings: `node scripts/validate-skill.js skills/<name>`
+- Marketplace install: `/plugin marketplace add Adit-Jain-srm/skill-forge`
+- Memory index must be rebuilt after changing learnings: `node scripts/index-memory.js`
+- SkillOpt records outcomes: `node scripts/skillopt.js --record --skill <name> --task "..." --outcome <good|poor|mixed>`
+- Publishing target: GitHub under `Adit-Jain-srm` org
