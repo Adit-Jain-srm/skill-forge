@@ -40,3 +40,23 @@ _Avoid_: metrics, KPIs (corporate speak — reputation is personal)
 
 - "skill" was previously used for both "SKILL.md file" and "capability" — resolved: Skill = the file/repo, capability = what it teaches
 - "learning" was previously passive (store a note) — resolved: learning must change BEHAVIOR, not just exist in a file
+
+---
+
+## Added Terms (v1.2)
+
+**Indexed Memory**:
+Category-indexed, keyword-indexed retrieval of learnings. Built by `scripts/index-memory.js`. Enables O(1) category lookup + O(k) keyword scan for instant context surfacing.
+_Avoid_: flat file, sequential scan, manual lookup
+
+**SkillOpt**:
+The prompt engineering self-improvement loop. Records skill usage outcomes, accumulates data, proposes prompt deltas, evaluates impact. Cycle: rollout → reflect → aggregate → select → update → evaluate.
+_Avoid_: manual review, one-shot edit, guessing (SkillOpt is data-driven)
+
+**Compound Routing**:
+Combining 3-5 skills for complex tasks where no single skill covers all aspects. The router detects low overlap between top matches and generates a combined invocation prompt.
+_Avoid_: single-skill routing, sequential invocation (compound is parallel/complementary)
+
+**Orchestration**:
+End-to-end project guidance through 7 phases: grill → research → architect → route → guide → review → learn. Not just finding a skill — coordinating the whole journey.
+_Avoid_: routing (too narrow), planning (too vague — orchestration produces executable structure)

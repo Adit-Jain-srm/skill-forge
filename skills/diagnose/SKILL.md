@@ -8,6 +8,12 @@ description: >-
   investigate, or "why is this broken".
 ---
 
+## Overview
+
+Systematic debugging that produces evidence at every step — not guesswork, not shotgun fixes.
+
+## Process
+
 Do NOT guess. Follow the loop. Every step produces evidence.
 
 ## The Loop
@@ -38,6 +44,27 @@ Do NOT guess. Follow the loop. Every step produces evidence.
 - "It's probably a timing issue" → Probably? REPRODUCE it. PROVE it's timing.
 - "I'll add some console.logs" → WHICH log proves WHICH hypothesis? Be specific.
 - "Fixed! (without running the test)" → NO. Prove it. Run it. Evidence.
+
+## Common Mistakes
+
+- Changing two things at once — you learn nothing about which fixed it
+- "Probably" without evidence — reproduce it or it's speculation
+- Fixing symptoms (adding null checks) instead of root causes (why was it null?)
+- Declaring "fixed" without a regression test proving it
+
+## Example
+
+```
+Bug: "Login button sometimes doesn't respond"
+
+1. REPRODUCE: Click login 20 times → fails on attempts 7, 14, 19 (pattern?)
+2. MINIMISE: Remove all other UI. Just the button + handler. Still fails.
+3. HYPOTHESISE: "Event listener is being attached multiple times on re-render"
+4. INSTRUMENT: Add counter in useEffect → logs show 3 listeners after 3 renders
+5. EVALUATE: Hypothesis confirmed. Missing cleanup in useEffect.
+6. FIX: Add return () => btn.removeEventListener(...) in useEffect
+7. REGRESSION TEST: test('login handler attaches exactly once after re-renders')
+```
 
 ## Persistence
 

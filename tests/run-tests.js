@@ -130,7 +130,8 @@ console.log('\n\x1b[1mMemory Integrity Tests\x1b[0m');
 
 const expectedMemoryFiles = [
   'rl-state.json', 'discovered-skills.json', 'learnings.json',
-  'gaps.json', 'published.json', 'reputation-playbook.json'
+  'gaps.json', 'published.json', 'reputation-playbook.json',
+  'indexed-learnings.json', 'skillopt-state.json'
 ];
 
 for (const file of expectedMemoryFiles) {
@@ -148,6 +149,102 @@ test('memory/evolution-log.jsonl exists and has entries', () => {
   const lines = fs.readFileSync(filepath, 'utf8').trim().split('\n');
   assert(lines.length >= 1, 'No log entries');
   JSON.parse(lines[0]); // first line must be valid JSON
+});
+
+test('memory/skillopt-log.jsonl exists', () => {
+  const filepath = path.join(MEMORY_DIR, 'skillopt-log.jsonl');
+  assert(fs.existsSync(filepath), 'skillopt-log.jsonl missing');
+});
+
+// === INDEXED MEMORY TESTS ===
+console.log('\n\x1b[1mIndexed Memory Tests\x1b[0m');
+
+test('memory/indexed-learnings.json exists and is valid', () => {
+  const filepath = path.join(MEMORY_DIR, 'indexed-learnings.json');
+  assert(fs.existsSync(filepath), 'indexed-learnings.json missing');
+  const data = JSON.parse(fs.readFileSync(filepath, 'utf8'));
+  assert(data.version, 'Missing version');
+  assert(data.categories, 'Missing categories');
+  assert(data.keyword_index, 'Missing keyword_index');
+  assert(data.by_apply_to, 'Missing by_apply_to');
+});
+
+test('indexed-learnings.json has populated categories', () => {
+  const data = JSON.parse(fs.readFileSync(path.join(MEMORY_DIR, 'indexed-learnings.json'), 'utf8'));
+  const categoryCount = Object.keys(data.categories).length;
+  assert(categoryCount >= 3, `Only ${categoryCount} categories (need 3+)`);
+  const totalPatterns = Object.values(data.categories).reduce((sum, arr) => sum + arr.length, 0);
+  assert(totalPatterns >= 10, `Only ${totalPatterns} indexed patterns (need 10+)`);
+});
+
+test('indexed-learnings.json keyword_index has entries', () => {
+  const data = JSON.parse(fs.readFileSync(path.join(MEMORY_DIR, 'indexed-learnings.json'), 'utf8'));
+  const kwCount = Object.keys(data.keyword_index).length;
+  assert(kwCount >= 50, `Only ${kwCount} keywords indexed (need 50+)`);
+});
+
+// === ROUTING TESTS ===
+console.log('\n\x1b[1mRouting Tests\x1b[0m');
+
+test('route-task.js returns results for known-good query', () => {
+  const result = execSync('node scripts/route-task.js "write tests for my React components"', { encoding: 'utf8', cwd: ROOT });
+  const output = JSON.parse(result);
+  assert(output.task, 'Missing task in output');
+  assert(output.total_skills_searched > 0, 'No skills searched');
+  assert(output.top_skills, 'Missing top_skills');
+  assert(output.invocation_prompt, 'Missing invocation_prompt');
+});
+
+test('route-task.js includes TF-IDF scores', () => {
+  const result = execSync('node scripts/route-task.js "deploy app to production with monitoring"', { encoding: 'utf8', cwd: ROOT });
+  const output = JSON.parse(result);
+  if (output.top_skills && output.top_skills.length > 0) {
+    assert(typeof output.top_skills[0].tfidf === 'number', 'Missing tfidf score');
+    assert(typeof output.top_skills[0].ngram_bonus === 'number', 'Missing ngram_bonus');
+  }
+});
+
+test('route-task.js compound routing returns companions for complex tasks', () => {
+  const result = execSync('node scripts/route-task.js "build secure scalable microservices with database schema design and CI/CD pipeline"', { encoding: 'utf8', cwd: ROOT });
+  const output = JSON.parse(result);
+  assert(output.routing_type, 'Missing routing_type');
+  assert(Array.isArray(output.compound_skills), 'Missing compound_skills array');
+});
+
+// === SKILLOPT TESTS ===
+console.log('\n\x1b[1mSkillOpt Tests\x1b[0m');
+
+test('skillopt.js --status returns valid JSON', () => {
+  const result = execSync('node scripts/skillopt.js --status', { encoding: 'utf8', cwd: ROOT });
+  const output = JSON.parse(result);
+  assert(typeof output.total_skills_tracked === 'number', 'Missing total_skills_tracked');
+  assert(typeof output.total_records === 'number', 'Missing total_records');
+  assert(Array.isArray(output.skills), 'Missing skills array');
+});
+
+test('skillopt.js --record creates valid outcome', () => {
+  const result = execSync('node scripts/skillopt.js --record --skill test-skill --task "unit test" --outcome good', { encoding: 'utf8', cwd: ROOT });
+  const output = JSON.parse(result);
+  assert(output.recorded === true, 'Record failed');
+  assert(output.skill === 'test-skill', 'Wrong skill name');
+});
+
+// === ORCHESTRATOR TESTS ===
+console.log('\n\x1b[1mOrchestrator Tests\x1b[0m');
+
+test('orchestrate.js --phase grill returns questions', () => {
+  const result = execSync('node scripts/orchestrate.js --phase grill "build a web app"', { encoding: 'utf8', cwd: ROOT });
+  const output = JSON.parse(result);
+  assert(output.phases.grill, 'Missing grill phase');
+  assert(output.phases.grill.questions, 'Missing questions');
+  assert(output.phases.grill.questions.constraints.length > 0, 'No constraint questions');
+});
+
+test('orchestrate.js --phase architect returns proposals', () => {
+  const result = execSync('node scripts/orchestrate.js --phase architect "SaaS platform"', { encoding: 'utf8', cwd: ROOT });
+  const output = JSON.parse(result);
+  assert(output.phases.architect, 'Missing architect phase');
+  assert(output.phases.architect.architectures.length >= 2, 'Need at least 2 architecture proposals');
 });
 
 // === PLUGIN MANIFEST TESTS ===

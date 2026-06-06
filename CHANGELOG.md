@@ -2,6 +2,28 @@
 
 All notable changes to skill-forge.
 
+## [1.2.0] - 2026-06-06
+
+### Added
+- `scripts/index-memory.js` — category-indexed, keyword-indexed learnings with O(1) retrieval
+- `scripts/skillopt.js` — SkillOpt self-improvement loop (rollout→reflect→aggregate→select→update→evaluate)
+- `scripts/orchestrate.js` — end-to-end project orchestration (7-phase guided plans)
+- `memory/indexed-learnings.json` — indexed memory structure (auto-generated)
+- `memory/skillopt-state.json` + `memory/skillopt-log.jsonl` — improvement tracking
+- 16 new regression tests (routing, indexed memory, skillopt, orchestrator)
+- Compound routing: combines 3-5 skills for complex tasks
+- Relevant learnings surfaced alongside routing results
+
+### Changed
+- `scripts/route-task.js` — rewritten with TF-IDF scoring, n-gram matching, cosine similarity
+- All 16 skills now pass validation with 0 warnings (added Overview, Process, Common Mistakes where missing)
+- `SKILL.md` — updated pipeline: indexed retrieval (Phase 0), semantic routing (Phase 4), SkillOpt (Phase 5)
+- `CONTEXT.md` — added 4 new terms (Indexed Memory, SkillOpt, Compound Routing, Orchestration)
+- `AGENTS.md` — added automation scripts table
+- `CONTRIBUTING.md` — updated with new validation requirements and scaffold command
+- `README.md` — updated badges (v1.2.0, 98 tests), structure, quality proof
+- Test count: 82 → 98
+
 ## [1.1.0] - 2026-06-04
 
 ### Added

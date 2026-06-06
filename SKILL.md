@@ -160,11 +160,13 @@ Phase 7: Sync + Promote + Optimize
 ## Phase 0: State + Apply Learnings
 
 1. Load all memory files
-2. **READ learnings.json** — for EACH recent learning, ask: "Does this apply to what I'm about to do?"
-3. **Check: am I about to repeat a mistake?** (read self-checks.jsonl)
-4. **Check: is there a BETTER approach I learned but haven't used yet?**
-5. **Measure: was last cycle faster than the one before?** If not — why? Fix.
-6. **Context check:** Are CONTEXT.md, AGENTS.md, and memory/ all consistent? Update if stale.
+2. **Run `node scripts/index-memory.js`** — builds indexed view with category/keyword/apply_to indexes
+3. **Retrieve relevant learnings** for the current task: `node scripts/index-memory.js --retrieve "task"`
+4. **Check: am I about to repeat a mistake?** (read self-checks.jsonl)
+5. **Check: is there a BETTER approach I learned but haven't used yet?**
+6. **Measure: was last cycle faster than the one before?** If not — why? Fix.
+7. **Context check:** Are CONTEXT.md, AGENTS.md, and memory/ all consistent? Update if stale.
+8. **SkillOpt check:** `node scripts/skillopt.js --status` — any skills degrading?
 
 **Techniques that make this phase faster (from top performers):**
 - Spec-first: if there's a task, write what you'll do BEFORE doing it
@@ -255,7 +257,9 @@ When you have access to other skills, USE THEM — don't reinvent:
 - Close loopholes EXPLICITLY ("Don't keep it as reference. Delete means delete.")
 - Add "Violating the letter IS violating the spirit" early
 
-**ROUTE:** Match user's task to ALL knowledge (installed + discovered + learnings). Generate compound prompt. Include novel approaches. Surface the BEST 3 options ranked by fit. **Also check: which INSTALLED SKILLS would help this task?** Route to those too.
+**ROUTE:** Semantic routing via TF-IDF + n-gram matching: `node scripts/route-task.js "task"`. Returns compound skill combinations (3-5 skills for complex tasks), relevant learnings from indexed memory, and per-category RL-weighted scores. Also check: which INSTALLED SKILLS would help this task? Route to those too.
+
+**GUIDE (Project Orchestration):** For full projects, run: `node scripts/orchestrate.js "project description"`. Generates a 7-phase plan: grill → research → architect → route → guide → review → learn. Each phase produces structured output. Use `--phase <name>` to run individual phases.
 
 **PROMOTE:** For each published skill, find places to mention it authentically. Not spam — genuine value addition to existing discussions. Track which channels drive actual installs.
 
@@ -267,7 +271,7 @@ When you have access to other skills, USE THEM — don't reinvent:
 - Run it once to confirm behavior
 - Add to installed-skills.json with quality notes
 
-## Phase 5: Self-Check
+## Phase 5: Self-Check + SkillOpt
 
 ```
 SELF-CHECK (mandatory):
@@ -278,6 +282,13 @@ SELF-CHECK (mandatory):
 5. What learning does this add? (Tag it for both objectives)
 6. Am I using PREVIOUS learnings? (Read 3. Are they reflected here?)
 ```
+
+**SkillOpt Loop (after every skill use):**
+```bash
+node scripts/skillopt.js --record --skill <name> --task "..." --outcome <good|poor|mixed> --details "..."
+node scripts/skillopt.js --analyze  # When 3+ datapoints exist, proposes prompt deltas
+```
+Cycle: rollout → reflect → aggregate → select → update → evaluate. See `scripts/skillopt.js`.
 
 ## Phase 6: Learning Extraction
 
@@ -337,6 +348,10 @@ SELF-CHECK (mandatory):
 - Validation: `scripts/validate-skill.js`
 - Discovery: `scripts/discover.js`
 - Publishing: `scripts/publish.js`
+- Routing: `scripts/route-task.js` (TF-IDF + compound + learnings)
+- Memory Index: `scripts/index-memory.js` (category/keyword indexed retrieval)
+- SkillOpt: `scripts/skillopt.js` (self-improvement loop)
+- Orchestration: `scripts/orchestrate.js` (end-to-end project guidance)
 - CLI: `bin/skill-forge.js`
 - State: `memory/*.json`
 - Self-checks: `memory/self-checks.jsonl`

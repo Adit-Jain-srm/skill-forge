@@ -1,7 +1,7 @@
 {
-  "version": "2.0.0",
-  "last_updated": "2026-06-04T03:35:00+05:30",
-  "total_learnings": 30,
+  "version": "3.0.0",
+  "last_updated": "2026-06-06T17:30:00+05:30",
+  "total_learnings": 41,
   "patterns": [
     {"pattern": "problem_fix_framing", "description": "CRITICAL: Frame each skill as a named PROBLEM → FIX. Not 'what it does' but 'what pain it eliminates'. mattpocock uses '#1: Agent Didnt Do What I Want → /grill-me'. This is what gets 116K stars.", "source": "mattpocock/skills (116K stars)", "confidence": 1.0},
     {"pattern": "personal_authenticity", "description": "'Straight from my .claude directory' — skills that feel PERSONAL (not corporate/generic) get massive adoption. Users trust 'this is what I actually use' over 'this is what you should use'.", "source": "mattpocock/skills", "confidence": 0.95},
@@ -32,7 +32,17 @@
     {"pattern": "diagnose_loop", "description": "'Disciplined diagnosis: reproduce → minimise → hypothesise → instrument → fix → regression-test.' Structured debugging loop as a skill.", "source": "mattpocock/skills", "confidence": 0.9},
     {"pattern": "CONTEXT_MD_shared_language", "description": "Most powerful technique: CONTEXT.md that defines project-specific jargon. Agent uses fewer tokens, names things consistently, navigates easier. 'The single coolest technique in this repo.'", "source": "mattpocock/skills (grill-with-docs)", "confidence": 1.0},
     {"pattern": "zoom_out_perspective", "description": "'Tell the agent to zoom out and give broader context on unfamiliar code.' Simple but powerful: a skill that forces PERSPECTIVE shifts.", "source": "mattpocock/skills", "confidence": 0.85},
-    {"pattern": "improve_codebase_architecture_skill", "description": "'Find deepening opportunities informed by domain language and ADRs. Run once every few days.' A MAINTENANCE skill — not one-shot, recurring value.", "source": "mattpocock/skills (203K installs)", "confidence": 0.95}
+    {"pattern": "improve_codebase_architecture_skill", "description": "'Find deepening opportunities informed by domain language and ADRs. Run once every few days.' A MAINTENANCE skill — not one-shot, recurring value.", "source": "mattpocock/skills (203K installs)", "confidence": 0.95},
+    {"pattern": "prompt_structure_identity_instructions_context", "description": "CRITICAL: Structure every prompt as Identity (who you are) → Instructions (what to do, rules) → Examples (few-shot) → Context (data). This order maximizes instruction following. OpenAI + Anthropic both confirm this hierarchy.", "source": "OpenAI prompt engineering guide + Anthropic building effective agents", "confidence": 1.0, "apply_to": ["skill-creation", "project-guidance"]},
+    {"pattern": "explain_why_not_rigid_musts", "description": "LLMs respond better to REASONING than rigid rules. Instead of 'ALWAYS do X', explain WHY X matters. The model generalizes from understanding, not from constraints. Reduces brittleness, improves edge case handling.", "source": "Anthropic skill-creator methodology (line 302)", "confidence": 0.95, "apply_to": ["skill-creation"]},
+    {"pattern": "few_shot_examples_in_skills", "description": "Include 1-2 concrete input/output examples in skills. Models pattern-match against examples more reliably than abstract instructions. Show diverse scenarios, not just the happy path.", "source": "OpenAI few-shot learning + promptingguide.ai", "confidence": 0.95, "apply_to": ["skill-creation", "project-guidance"]},
+    {"pattern": "xml_tags_for_boundaries", "description": "Use XML tags (<task>, <context>, <output>) to delineate logical sections in generated prompts. Models parse XML boundaries more reliably than markdown for structured input/output extraction.", "source": "OpenAI prompt engineering: Markdown + XML formatting", "confidence": 0.9, "apply_to": ["skill-creation", "project-guidance"]},
+    {"pattern": "simple_composable_over_complex_frameworks", "description": "The most successful agent implementations use simple, composable patterns — NOT complex frameworks. Prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer. Build with LLM APIs directly.", "source": "Anthropic building effective agents", "confidence": 1.0, "apply_to": ["architecture", "project-guidance"]},
+    {"pattern": "agent_computer_interface_equals_hci", "description": "Tool documentation for agents deserves as much effort as UI design for humans. Include example usage, edge cases, input format requirements, clear boundaries from other tools. Test how the model uses your tools and iterate.", "source": "Anthropic building effective agents, Appendix 2", "confidence": 0.95, "apply_to": ["skill-creation", "architecture"]},
+    {"pattern": "evaluator_optimizer_loop", "description": "Pattern: one LLM generates, another evaluates and provides feedback in a loop. Most effective when clear evaluation criteria exist and iterative refinement provides measurable value. Apply to skill quality improvement.", "source": "Anthropic building effective agents", "confidence": 0.9, "apply_to": ["skill-creation", "hackathons"]},
+    {"pattern": "reasoning_models_goals_not_steps", "description": "Reasoning models (o1, Claude thinking) work best with high-level goals, not step-by-step instructions. Give the goal, trust them to work out details. GPT models need explicit instructions. Know which you're targeting.", "source": "OpenAI prompting reasoning models guide", "confidence": 0.9, "apply_to": ["skill-creation", "project-guidance"]},
+    {"pattern": "atomic_prompt_changes_with_evals", "description": "Never change multiple prompt sections at once. Change ONE thing, measure the effect, keep or revert. Build test fixtures BEFORE changing prompts. This is the SkillOpt principle applied to prompt iteration.", "source": "OpenAI: build tests before changing prompts + skill-creator methodology", "confidence": 0.95, "apply_to": ["skill-creation"]},
+    {"pattern": "agentic_prompts_plan_reflect_todo", "description": "For agentic tasks: instruct the model to plan extensively, reflect after each tool call, maintain a TODO list. Don't terminate early — decompose the query into all sub-requests and confirm each is completed.", "source": "OpenAI prompt engineering: agentic tasks section", "confidence": 0.9, "apply_to": ["project-guidance", "architecture"]}
   ],
   "philosophies": [
     {"text": "Skills for Real Engineers. Not vibe coding.", "source": "mattpocock/skills"},
@@ -56,6 +66,9 @@
     {"name": "Handoff document", "description": "Compact current conversation into structured doc for agent continuation.", "source": "mattpocock/handoff"},
     {"name": "Caveman compression", "description": "Communication mode that drops all filler, keeps technical accuracy. 75% token reduction.", "source": "mattpocock/caveman"},
     {"name": "SkillOpt training loop", "description": "rollout-reflect-aggregate-select-update-evaluate.", "source": "microsoft/SkillOpt"},
-    {"name": "Skill validation script", "description": "Automated checks: frontmatter, lines, sections, code, placeholders.", "source": "self-developed"}
+    {"name": "Skill validation script", "description": "Automated checks: frontmatter, lines, sections, code, placeholders.", "source": "self-developed"},
+    {"name": "Identity-Instructions-Examples-Context", "description": "Structure every generated prompt in this order. Identity first (role/purpose), then rules, then few-shot examples, then dynamic context data. Proven by OpenAI and Anthropic to maximize instruction adherence.", "source": "OpenAI + Anthropic 2024-2026"},
+    {"name": "Atomic prompt iteration", "description": "Change one thing at a time in a skill prompt. Measure before/after. Keep or revert. Never batch-edit prompts without measurement.", "source": "OpenAI + skill-creator eval methodology"},
+    {"name": "Composable agent patterns", "description": "5 building blocks: prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer. Start simple, add complexity only when measured improvement.", "source": "Anthropic building effective agents (Dec 2024)"}
   ]
 }

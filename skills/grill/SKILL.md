@@ -7,7 +7,9 @@ description: >-
   wrong thing by resolving decisions before implementation.
 ---
 
-Before building ANYTHING, walk down the decision tree. Resolve every branch.
+## Overview
+
+Resolve every decision branch before committing to implementation. Ask questions ONE AT A TIME until the full picture emerges.
 
 ## How
 
@@ -46,6 +48,19 @@ Stop grilling when:
 ## Anti-Pattern
 
 "Let me just start and see where it goes" ← This is the PROBLEM grilling prevents. Every hour spent grilling saves 10 hours of building the wrong thing.
+
+## Example Exchange
+
+```
+Agent: "WHO is this for? My recommendation: solo developers working on 
+       side projects who hit the same deployment friction every weekend."
+User:  "Actually it's for teams — 3-5 devs sharing staging environments."
+Agent: "Good — that changes scope significantly. WHAT specific pain does 
+       this eliminate? My recommendation: 'We broke staging again because 
+       two people deployed at the same time.'"
+```
+
+Key: ONE question, recommend an answer, let the user correct. Don't ask three things at once.
 
 > "No-one knows exactly what they want." — The Pragmatic Programmer
 >

@@ -7,6 +7,12 @@ description: >-
   wrap up, save progress, or "continue this later".
 ---
 
+## Overview
+
+Create a structured document capturing everything needed to continue work in a fresh session — in under 50 lines.
+
+## Process
+
 Write a handoff document capturing everything needed to continue this work.
 
 ## What to Include
@@ -35,6 +41,13 @@ Save to the OS temp directory (not the workspace):
 - macOS/Linux: `/tmp/handoff-{project}-{date}.md`
 
 Tell the user the path so they can reference it next session.
+
+## Common Mistakes
+
+- Including full code instead of file paths (bloats the handoff, makes it unreadable)
+- Forgetting open questions (next session re-litigates decisions)
+- Writing vague next steps like "continue working" (be SPECIFIC: which file, which function, which test)
+- Saving to the workspace (pollutes the project — use temp directory)
 
 ## Format
 

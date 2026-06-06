@@ -7,6 +7,12 @@ description: >-
   Auto-triggers on code changes. Reduces back-and-forth by catching issues first-pass.
 ---
 
+## Overview
+
+Catch your own bugs, style issues, and missed requirements BEFORE presenting code. The user should never see your first draft.
+
+## Process
+
 After writing or modifying code, review it yourself BEFORE presenting to the user.
 
 ## Persistence
@@ -50,6 +56,13 @@ The user should never see your first draft. They should see your REVIEWED draft.
 | 1-5 lines | Quick scan: bugs, types, imports |
 | 5-50 lines | Full checklist above |
 | 50+ lines | Full checklist + architecture fit + test impact |
+
+## Common Mistakes
+
+- Announcing "I'm reviewing my code now" (just do it silently, present clean results)
+- Reviewing only your changed lines without checking surrounding context
+- Treating small changes as exempt ("one-line changes can't break things" — they can)
+- Using `any` types or skipping error handling because "it's just a quick fix"
 
 ## Why This Matters
 

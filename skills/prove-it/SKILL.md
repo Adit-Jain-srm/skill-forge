@@ -7,6 +7,12 @@ description: >-
   Auto-triggers before any completion claim.
 ---
 
+## Overview
+
+The #1 agent failure: claiming "done" without proof. This skill forces evidence-before-assertion on every completion claim.
+
+## Process
+
 Never say "done" without proof. Never say "fixed" without running it. Never say "implemented" without showing it works.
 
 ## Persistence
@@ -87,6 +93,13 @@ The #1 agent failure pattern (2026): "says done but isn't." Users report spendin
 - "Let me just confirm it's done" (without running anything)
 
 **All of these mean: you're about to claim without evidence. Run the verification FIRST.**
+
+## Common Mistakes
+
+- Treating your code diff as evidence (the diff is the CLAIM, execution is the EVIDENCE)
+- Running tests but not reading output (exit code 0 with skipped tests is not passing)
+- "It worked earlier" as justification (prove it works NOW)
+- Verifying in your head instead of on the machine
 
 ## Rationalizations (countered)
 

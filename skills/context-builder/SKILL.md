@@ -96,6 +96,13 @@ After generating CONTEXT.md:
 - [ ] Relationships are explicit (not just a flat list)
 - [ ] The agent can explain the project using ONLY these terms
 
+## Common Mistakes
+
+- Adding implementation details to CONTEXT.md (it's a GLOSSARY, not a spec)
+- Defining too many terms at once (start with 5-8 core terms, grow organically)
+- Skipping the "Avoid" list (without it, the agent drifts back to generic language)
+- Treating it as write-once (update when new domain concepts emerge)
+
 ## Why This Works
 
 Cognitive science: shared mental models reduce communication overhead exponentially. In software, Eric Evans called this "Ubiquitous Language" (Domain-Driven Design). mattpocock proved it works for AI agents with 75% token reduction in practice.

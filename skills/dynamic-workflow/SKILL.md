@@ -29,6 +29,10 @@ Claude Code can now spawn 10-100 subagents in parallel, each working on a piece 
 
 **Rule of thumb:** If you'd naturally say "I need to look at this from 5 different angles" — use a workflow. If it's sequential (step A must finish before B starts) — don't.
 
+## Process
+
+Follow this pattern for every dynamic workflow:
+
 ## The Pattern
 
 ```

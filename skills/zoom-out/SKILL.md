@@ -9,6 +9,12 @@ description: >-
   or "explain the architecture around this".
 ---
 
+## Overview
+
+Before modifying unfamiliar code, explain the broader system context — what depends on this code, what this code calls into, and what breaks if you change it.
+
+## Process
+
 Stop. Zoom out. Before touching this code, explain:
 
 1. **What system is this part of?** (name the module/service/layer)
@@ -30,6 +36,13 @@ Stop. Zoom out. Before touching this code, explain:
 - Read FIRST, explain SECOND, modify THIRD. Never modify what you don't understand.
 - If you can't explain it simply, you don't understand it well enough to change it safely.
 - Cite specific file paths and line numbers when explaining relationships.
+
+## Common Mistakes
+
+- Modifying before understanding (leads to cascading breakage)
+- Explaining only the file in isolation (miss the system relationships)
+- Skipping "what breaks if this changes" (the most critical question)
+- Using vague descriptions — always cite specific file paths and line numbers
 
 ## Example
 

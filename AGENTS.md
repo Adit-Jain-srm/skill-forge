@@ -17,12 +17,34 @@ This is a self-improving skill collection. The meta-agent (root SKILL.md) discov
 | Skill | Slash Command | Solves |
 |-------|--------------|--------|
 | setup | /setup | First-time configuration |
+| grill | /grill | "Building the wrong thing" |
+| prove-it | /prove-it | "Agent says 'done' but it's NOT" |
+| diagnose | /diagnose | "Something broken, don't know why" |
+| self-review | /self-review | "Agent shows buggy first drafts" |
+| zoom-out | /zoom-out | "Lost in unfamiliar code" |
+| handoff | /handoff | "Need to continue later" |
+| session-guard | /session-guard | "Long sessions degrade" |
+| context-builder | /context-builder | "Agent doesn't speak my language" |
+| dynamic-workflow | /dynamic-workflow | "Complex task needs parallel work" |
 | mcp-conductor | /mcp-conductor | "Agent uses one tool when it should chain five" |
-| web-perf | /web-perf | "Site is slow, don't know why" |
 | git-workflow | /git-workflow | "Drowning in git complexity" |
-| db-schema | /db-schema | "Database breaks at scale" |
-| arch-from-code | /arch-from-code | "Nobody knows how codebase works" |
+| web-perf | /web-perf | "Site is slow, don't know why" |
 | error-resilience | /error-resilience | "Code breaks in production" |
+| arch-from-code | /arch-from-code | "Nobody knows how codebase works" |
+| db-schema | /db-schema | "Database breaks at scale" |
+
+### Automation Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/route-task.js` | TF-IDF semantic routing with compound skill matching |
+| `scripts/index-memory.js` | Build indexed learnings (category + keyword + apply_to) |
+| `scripts/skillopt.js` | SkillOpt self-improvement loop (record → analyze → propose → apply) |
+| `scripts/orchestrate.js` | End-to-end project orchestration (7-phase guided plan) |
+| `scripts/discover.js` | Multi-strategy skill discovery |
+| `scripts/self-improve.js` | Monitor repos + weakness detection |
+| `scripts/rl-update.js` | Reinforcement learning signal processing |
+| `scripts/validate-skill.js` | Quality validation for skills |
 
 ### Self-Check Protocol
 

@@ -11,7 +11,13 @@ description: >-
 
 # Session Guard
 
-Prevent session corruption before it happens. Long sessions degrade — this keeps them healthy.
+## Overview
+
+Prevent session corruption before it happens. Long sessions (50+ tool calls) cause hallucinated results, instruction drift, and false progress. This skill monitors health and splits proactively.
+
+## Process
+
+Monitor session health signals passively. Escalate when thresholds trigger. Split BEFORE corruption appears — once damage occurs, it's invisible and irreversible.
 
 ## Persistence
 

@@ -1,0 +1,98 @@
+{
+  "version": "1.0.0",
+  "skills": {
+    "grill": {
+      "outcomes": [
+        {
+          "id": "grill-1780746408136",
+          "task": "design API for payment system",
+          "outcome": "good",
+          "details": "asked great questions, resolved all decision branches",
+          "timestamp": "2026-06-06T11:46:48.136Z"
+        },
+        {
+          "id": "grill-1780746408179",
+          "task": "plan database migration",
+          "outcome": "mixed",
+          "details": "missed scale concerns",
+          "timestamp": "2026-06-06T11:46:48.179Z"
+        },
+        {
+          "id": "grill-1780746408221",
+          "task": "setup monitoring",
+          "outcome": "poor",
+          "details": "too many questions, lost focus",
+          "timestamp": "2026-06-06T11:46:48.221Z"
+        }
+      ],
+      "deltas": [],
+      "current_version": 0,
+      "total_uses": 3,
+      "quality_trend": [
+        1,
+        0.5,
+        0
+      ]
+    },
+    "test-skill": {
+      "outcomes": [
+        {
+          "id": "test-skill-1780746554731",
+          "task": "unit test",
+          "outcome": "good",
+          "details": null,
+          "timestamp": "2026-06-06T11:49:14.731Z"
+        },
+        {
+          "id": "test-skill-1780746672711",
+          "task": "unit test",
+          "outcome": "good",
+          "details": null,
+          "timestamp": "2026-06-06T11:51:12.711Z"
+        },
+        {
+          "id": "test-skill-1780746772483",
+          "task": "unit test",
+          "outcome": "good",
+          "details": null,
+          "timestamp": "2026-06-06T11:52:52.483Z"
+        },
+        {
+          "id": "test-skill-1780747972916",
+          "task": "unit test",
+          "outcome": "good",
+          "details": null,
+          "timestamp": "2026-06-06T12:12:52.916Z"
+        },
+        {
+          "id": "test-skill-1780748392050",
+          "task": "unit test",
+          "outcome": "good",
+          "details": null,
+          "timestamp": "2026-06-06T12:19:52.050Z"
+        },
+        {
+          "id": "test-skill-1780748494936",
+          "task": "unit test",
+          "outcome": "good",
+          "details": null,
+          "timestamp": "2026-06-06T12:21:34.936Z"
+        }
+      ],
+      "deltas": [],
+      "current_version": 0,
+      "total_uses": 6,
+      "quality_trend": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "total_records": 9,
+  "total_deltas_applied": 0,
+  "total_rollbacks": 0
+}

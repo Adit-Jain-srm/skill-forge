@@ -3,11 +3,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/version-1.1.0-blue.svg?style=for-the-badge" alt="Version"/></a>
+  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/version-1.2.0-blue.svg?style=for-the-badge" alt="Version"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge" alt="License"/></a>
   <a href="https://github.com/Adit-Jain-srm/skill-forge/stargazers"><img src="https://img.shields.io/github/stars/Adit-Jain-srm/skill-forge?style=for-the-badge&color=yellow" alt="Stars"/></a>
   <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/skills-16-purple.svg?style=for-the-badge" alt="Skills"/></a>
-  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/tests-82_passing-brightgreen.svg?style=for-the-badge" alt="Tests"/></a>
+  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/tests-98_passing-brightgreen.svg?style=for-the-badge" alt="Tests"/></a>
 </p>
 
 <p align="center">
@@ -136,8 +136,11 @@ skill-forge status       # Metrics for both objectives
 ## Quality Proof
 
 ```
-✓ 82 automated tests (structure, skills, scripts, memory, plugins, quality)
-✓ 16/16 skills pass validation
+✓ 98 automated tests (structure, skills, scripts, memory, routing, skillopt, orchestration, quality)
+✓ 16/16 skills pass validation (0 warnings)
+✓ TF-IDF semantic routing with compound skill matching
+✓ SkillOpt self-improvement loop (data-driven prompt optimization)
+✓ Project orchestration (7-phase guided plan generation)
 ✓ CLI with 8 commands (discover, validate, test, status, self-check, publish, monetize, route)
 ✓ Evals directory with behavioral proof scenarios
 ✓ Platform manifests (.cursor-plugin, .claude-plugin)
@@ -153,17 +156,28 @@ skill-forge status       # Metrics for both objectives
 skill-forge/
 ├── SKILL.md                 # Intelligence amplifier (meta-agent)
 ├── CONTEXT.md               # Shared vocabulary
-├── AGENTS.md                # Agent instructions
+├── AGENTS.md                # Agent instructions + script reference
 ├── CLAUDE.md                # Claude-specific context
-├── skills/                  # 16 behavioral skills
-├── scripts/                 # 9 automation scripts
+├── skills/                  # 16 behavioral skills (0 validation warnings)
+├── scripts/                 # 13 automation scripts
+│   ├── route-task.js        # TF-IDF semantic routing + compound matching
+│   ├── index-memory.js      # Category/keyword indexed retrieval
+│   ├── skillopt.js          # Self-improvement loop (SkillOpt)
+│   ├── orchestrate.js       # End-to-end project orchestration
+│   ├── discover.js          # Multi-strategy skill discovery
+│   ├── self-improve.js      # Weakness detection + suggestions
+│   ├── rl-update.js         # Reinforcement learning signals
+│   ├── validate-skill.js    # Quality validation
+│   ├── analyze.js           # Deep skill analysis
+│   ├── install.js           # Skill + MCP installer
+│   ├── scaffold-repo.js     # New skill repo scaffolding
+│   ├── publish.js           # Marketplace publishing
+│   └── capafy-publish.js    # Capafy monetization
 ├── bin/                     # CLI (npx skill-forge <cmd>)
-├── memory/                  # Persistent RL state + learnings
+├── memory/                  # Persistent state (indexed, RL, skillopt)
 ├── evals/                   # Behavioral proof scenarios
-├── hooks/                   # Cursor invocation tracking
-├── tests/                   # 82-test validation suite
+├── tests/                   # 98-test validation suite
 ├── docs/                    # Setup guides + skill anatomy
-├── templates/               # Scaffolding for new skills
 ├── .cursor-plugin/          # Cursor marketplace manifest
 └── .claude-plugin/          # Claude marketplace manifest
 ```
