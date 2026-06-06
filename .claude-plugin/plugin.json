@@ -1,7 +1,8 @@
 {
   "name": "skill-forge",
-  "description": "Self-improving meta-agent for Claude Code: discovers, devours, and creates AI agent skills. 7 compound skills + autonomous discovery engine.",
-  "version": "1.0.0",
+  "description": "Self-improving intelligence amplifier: 16 behavioral skills + autonomous discovery + TF-IDF routing + SkillOpt self-improvement loop. Use for systematic debugging, code review, project orchestration, architecture decisions, error resilience, and web performance.",
+  "version": "1.2.0",
+  "skills": "skills",
   "author": {
     "name": "Adit Jain",
     "email": "aditjain2005@gmail.com"
@@ -14,8 +15,14 @@
     "meta-agent",
     "self-improving",
     "discovery",
-    "mcp-orchestration",
+    "routing",
+    "orchestration",
+    "debugging",
+    "code-review",
+    "error-resilience",
+    "web-performance",
     "architecture",
-    "web-performance"
+    "mcp-orchestration",
+    "prompt-engineering"
   ]
 }

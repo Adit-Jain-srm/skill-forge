@@ -1,0 +1,7 @@
+{
+  "name": "skill-forge",
+  "description": "Self-improving intelligence amplifier: 16 behavioral skills + TF-IDF routing + SkillOpt loop. Use for debugging, code review, architecture, error resilience, web performance, and project orchestration.",
+  "version": "1.2.0",
+  "skills": "./skills/",
+  "agents": "./SKILL.md"
+}

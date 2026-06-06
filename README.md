@@ -41,17 +41,24 @@ npx skills@latest add Adit-Jain-srm/skill-forge
 ```
 
 <details>
-<summary><b>Claude Code</b></summary>
+<summary><b>Claude Code (Plugin Marketplace)</b></summary>
 
 ```bash
 /plugin marketplace add Adit-Jain-srm/skill-forge
-/plugin install skill-forge@Adit-Jain-srm
+/plugin install skill-forge@skill-forge
+```
+</details>
+
+<details>
+<summary><b>Cursor</b></summary>
+
+```bash
+npx skills@latest add Adit-Jain-srm/skill-forge
 ```
 
-Or local:
+Or clone to personal skills:
 ```bash
-git clone https://github.com/Adit-Jain-srm/skill-forge.git
-claude --plugin-dir ./skill-forge
+git clone https://github.com/Adit-Jain-srm/skill-forge.git ~/.cursor/skills/skill-forge
 ```
 </details>
 
@@ -65,7 +72,7 @@ cp -r skill-forge/skills/* ~/.codex/skills/
 </details>
 
 <details>
-<summary><b>Gemini CLI / Windsurf / Other</b></summary>
+<summary><b>Gemini CLI / Copilot / Other</b></summary>
 
 ```bash
 git clone https://github.com/Adit-Jain-srm/skill-forge.git

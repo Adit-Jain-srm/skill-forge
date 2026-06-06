@@ -1,8 +1,8 @@
 {
   "name": "skill-forge",
   "displayName": "skill-forge",
-  "description": "Self-improving meta-agent: discovers, devours, and creates AI agent skills. 7 compound skills + autonomous discovery engine.",
-  "version": "1.0.0",
+  "description": "Self-improving intelligence amplifier: 16 behavioral skills + TF-IDF routing + SkillOpt loop + project orchestration. Use for debugging, code review, architecture decisions, error resilience, web performance, and more.",
+  "version": "1.2.0",
   "author": {
     "name": "Adit Jain",
     "email": "aditjain2005@gmail.com"
@@ -15,10 +15,15 @@
     "meta-agent",
     "self-improving",
     "discovery",
-    "mcp",
+    "routing",
     "orchestration",
+    "debugging",
+    "code-review",
+    "error-resilience",
     "web-performance",
-    "architecture"
+    "architecture",
+    "mcp-orchestration",
+    "prompt-engineering"
   ],
   "skills": "./skills/",
   "hooks": "./hooks/"

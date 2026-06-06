@@ -11,7 +11,7 @@
       "severity": "high",
       "competition": "low",
       "estimated_stars": "200-500",
-      "status": "being_built"
+      "status": "filled_v1.2"
     },
     {
       "id": "gap-002",
@@ -21,7 +21,7 @@
       "severity": "medium",
       "competition": "medium",
       "estimated_stars": "100-300",
-      "status": "identified"
+      "status": "filled_v1.0"
     },
     {
       "id": "gap-003",
@@ -31,7 +31,7 @@
       "severity": "high",
       "competition": "very_low",
       "estimated_stars": "300-800",
-      "status": "identified"
+      "status": "filled_v1.0"
     },
     {
       "id": "gap-004",
@@ -41,7 +41,7 @@
       "severity": "high",
       "competition": "zero",
       "estimated_stars": "500-1000",
-      "status": "identified"
+      "status": "filled_v1.0"
     },
     {
       "id": "gap-005",
@@ -51,7 +51,7 @@
       "severity": "medium",
       "competition": "low",
       "estimated_stars": "200-400",
-      "status": "identified"
+      "status": "filled_v1.0"
     }
   ],
   "anti_laziness_findings": [
