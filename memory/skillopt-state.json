@@ -84,12 +84,20 @@
           "outcome": "good",
           "details": null,
           "timestamp": "2026-06-06T12:30:54.102Z"
+        },
+        {
+          "id": "test-skill-1780750933716",
+          "task": "unit test",
+          "outcome": "good",
+          "details": null,
+          "timestamp": "2026-06-06T13:02:13.716Z"
         }
       ],
       "deltas": [],
       "current_version": 0,
-      "total_uses": 7,
+      "total_uses": 8,
       "quality_trend": [
+        1,
         1,
         1,
         1,
@@ -100,7 +108,7 @@
       ]
     }
   },
-  "total_records": 10,
+  "total_records": 11,
   "total_deltas_applied": 0,
   "total_rollbacks": 0
 }
