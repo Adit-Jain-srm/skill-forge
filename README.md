@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,25,27&height=200&section=header&text=skill-forge&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Intelligence%20Amplifier%20%E2%80%A2%2016%20Skills%20%E2%80%A2%20Self-Improving&descSize=20&descAlignY=55" width="100%"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,25,27&height=200&section=header&text=skill-forge&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Intelligence%20Amplifier%20%E2%80%A2%2017%20Skills%20%E2%80%A2%20Self-Improving&descSize=20&descAlignY=55" width="100%"/>
 </p>
 
 <p align="center">
   <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/version-1.2.0-blue.svg?style=for-the-badge" alt="Version"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge" alt="License"/></a>
   <a href="https://github.com/Adit-Jain-srm/skill-forge/stargazers"><img src="https://img.shields.io/github/stars/Adit-Jain-srm/skill-forge?style=for-the-badge&color=yellow" alt="Stars"/></a>
-  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/skills-16-purple.svg?style=for-the-badge" alt="Skills"/></a>
-  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/tests-98_passing-brightgreen.svg?style=for-the-badge" alt="Tests"/></a>
+  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/skills-17-purple.svg?style=for-the-badge" alt="Skills"/></a>
+  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/tests-101_passing-brightgreen.svg?style=for-the-badge" alt="Tests"/></a>
 </p>
 
 <p align="center">
@@ -82,26 +82,27 @@ git clone https://github.com/Adit-Jain-srm/skill-forge.git
 
 ---
 
-## 16 Skills — Each Solves a Named Problem
+## 17 Skills — Each Solves a Named Problem
 
 | # | Problem | Skill | What Changes |
 |---|---------|-------|-------------|
-| 1 | "Agent says 'done' but it's NOT" | **prove-it** | Forces evidence before any completion claim |
-| 2 | "Agent shows buggy first drafts" | **self-review** | Reviews own code BEFORE presenting |
-| 3 | "Building the wrong thing" | **grill** | Interview yourself until every decision is resolved |
-| 4 | "Something broken, don't know why" | **diagnose** | Forced loop: reproduce → minimise → hypothesise → fix |
-| 5 | "Agent doesn't speak my language" | **context-builder** | Builds shared vocabulary. 50-75% less verbosity |
-| 6 | "Lost in unfamiliar code" | **zoom-out** | Forces perspective before modifying anything |
-| 7 | "Need to continue later" | **handoff** | Compacts session into doc another agent picks up |
-| 8 | "Long sessions degrade" | **session-guard** | Monitors health, splits proactively before corruption |
-| 9 | "Complex task needs parallel work" | **dynamic-workflow** | Fan-out 10-100 subagents with verification gates |
-| 10 | "Agent uses one tool, should chain 5" | **mcp-conductor** | Multi-MCP orchestration pipelines |
-| 11 | "Git history is unreadable" | **git-workflow** | Enforced discipline: atomic commits, PR readiness |
-| 12 | "Site is slow, don't know why" | **web-perf** | Measure-first loop: baseline → identify → fix → re-measure |
-| 13 | "Code breaks in production" | **error-resilience** | Retry, circuit breakers, graceful degradation |
-| 14 | "Nobody knows the architecture" | **arch-from-code** | Generates diagrams from actual codebase analysis |
-| 15 | "Database breaks at scale" | **db-schema** | Queries-first discipline before every DDL |
-| 16 | "First-time setup confusing" | **setup** | One-time preference config all skills consume |
+| 1 | "AI code has hidden bugs" | **ai-debt-detector** | Catches orphaned resources, missing error handling, hallucinated packages |
+| 2 | "Agent says 'done' but it's NOT" | **prove-it** | Forces evidence before any completion claim |
+| 3 | "Agent shows buggy first drafts" | **self-review** | Reviews own code BEFORE presenting |
+| 4 | "Building the wrong thing" | **grill** | Interview yourself until every decision is resolved |
+| 5 | "Something broken, don't know why" | **diagnose** | Forced loop: reproduce → minimise → hypothesise → fix |
+| 6 | "Agent doesn't speak my language" | **context-builder** | Builds shared vocabulary. 50-75% less verbosity |
+| 7 | "Lost in unfamiliar code" | **zoom-out** | Forces perspective before modifying anything |
+| 8 | "Need to continue later" | **handoff** | Compacts session into doc another agent picks up |
+| 9 | "Long sessions degrade" | **session-guard** | Monitors health, splits proactively before corruption |
+| 10 | "Complex task needs parallel work" | **dynamic-workflow** | Fan-out 10-100 subagents with verification gates |
+| 11 | "Agent uses one tool, should chain 5" | **mcp-conductor** | Multi-MCP orchestration pipelines |
+| 12 | "Git history is unreadable" | **git-workflow** | Enforced discipline: atomic commits, PR readiness |
+| 13 | "Site is slow, don't know why" | **web-perf** | Measure-first loop: baseline → identify → fix → re-measure |
+| 14 | "Code breaks in production" | **error-resilience** | Retry, circuit breakers, graceful degradation |
+| 15 | "Nobody knows the architecture" | **arch-from-code** | Generates diagrams from actual codebase analysis |
+| 16 | "Database breaks at scale" | **db-schema** | Queries-first discipline before every DDL |
+| 17 | "First-time setup confusing" | **setup** | One-time preference config all skills consume |
 
 ---
 
@@ -143,14 +144,14 @@ skill-forge status       # Metrics for both objectives
 ## Quality Proof
 
 ```
-✓ 98 automated tests (structure, skills, scripts, memory, routing, skillopt, orchestration, quality)
-✓ 16/16 skills pass validation (0 warnings)
+✓ 101 automated tests (structure, skills, scripts, memory, routing, skillopt, orchestration, quality)
+✓ 17/17 skills pass validation (0 warnings)
 ✓ TF-IDF semantic routing with compound skill matching
 ✓ SkillOpt self-improvement loop (data-driven prompt optimization)
 ✓ Project orchestration (7-phase guided plan generation)
 ✓ CLI with 8 commands (discover, validate, test, status, self-check, publish, monetize, route)
+✓ Multi-platform: Cursor, Claude Code, Codex CLI, Gemini CLI, Copilot
 ✓ Evals directory with behavioral proof scenarios
-✓ Platform manifests (.cursor-plugin, .claude-plugin)
 ✓ CONTEXT.md shared vocabulary
 ✓ CI-ready (run: node tests/run-tests.js)
 ```
