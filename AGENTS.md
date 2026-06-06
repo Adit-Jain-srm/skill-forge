@@ -17,6 +17,7 @@ This is a self-improving skill collection. The meta-agent (root SKILL.md) discov
 | Skill | Slash Command | Solves |
 |-------|--------------|--------|
 | setup | /setup | First-time configuration |
+| ai-debt-detector | /ai-debt-detector | "AI code has hidden bugs nobody catches" |
 | grill | /grill | "Building the wrong thing" |
 | prove-it | /prove-it | "Agent says 'done' but it's NOT" |
 | diagnose | /diagnose | "Something broken, don't know why" |

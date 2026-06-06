@@ -261,7 +261,13 @@ When you have access to other skills, USE THEM — don't reinvent:
 
 **GUIDE (Project Orchestration):** For full projects, run: `node scripts/orchestrate.js "project description"`. Generates a 7-phase plan: grill → research → architect → route → guide → review → learn. Each phase produces structured output. Use `--phase <name>` to run individual phases.
 
-**PROMOTE:** For each published skill, find places to mention it authentically. Not spam — genuine value addition to existing discussions. Track which channels drive actual installs.
+**PROMOTE:** After publishing any skill, execute the full promotion pipeline:
+1. Search for viral threads discussing the EXACT pain point the skill solves
+2. Draft authentic comments (lead with personal experience, cite data, link last)
+3. Submit to ALL marketplaces: awesome-cursor-skills, EricGrill, daymade, wshobson, agentskill.sh, AgentDepot
+4. Write a DEV.to article (benefit-first title, data-backed, install command near top)
+5. Set GitHub topics (13), update description with install command, create release tag
+6. Track which channels drive installs via star velocity
 
 **GUIDE:** When user has a project/hackathon/decision, apply ALL learnings. Surface patterns from top repos, creative approaches from papers, architecture decisions from industry analysis. Use the grill pattern: ask ONE question at a time until the decision tree is resolved.
 

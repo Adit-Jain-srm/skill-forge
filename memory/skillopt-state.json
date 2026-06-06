@@ -91,12 +91,28 @@
           "outcome": "good",
           "details": null,
           "timestamp": "2026-06-06T13:02:13.716Z"
+        },
+        {
+          "id": "test-skill-1780751528662",
+          "task": "unit test",
+          "outcome": "good",
+          "details": null,
+          "timestamp": "2026-06-06T13:12:08.662Z"
+        },
+        {
+          "id": "test-skill-1780752268300",
+          "task": "unit test",
+          "outcome": "good",
+          "details": null,
+          "timestamp": "2026-06-06T13:24:28.300Z"
         }
       ],
       "deltas": [],
       "current_version": 0,
-      "total_uses": 8,
+      "total_uses": 10,
       "quality_trend": [
+        1,
+        1,
         1,
         1,
         1,
@@ -108,7 +124,7 @@
       ]
     }
   },
-  "total_records": 11,
+  "total_records": 13,
   "total_deltas_applied": 0,
   "total_rollbacks": 0
 }
