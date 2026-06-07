@@ -6,8 +6,8 @@
   <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/version-1.2.0-blue.svg?style=for-the-badge" alt="Version"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge" alt="License"/></a>
   <a href="https://github.com/Adit-Jain-srm/skill-forge/stargazers"><img src="https://img.shields.io/github/stars/Adit-Jain-srm/skill-forge?style=for-the-badge&color=yellow" alt="Stars"/></a>
-  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/skills-17-purple.svg?style=for-the-badge" alt="Skills"/></a>
-  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/tests-101_passing-brightgreen.svg?style=for-the-badge" alt="Tests"/></a>
+  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/skills-18-purple.svg?style=for-the-badge" alt="Skills"/></a>
+  <a href="https://github.com/Adit-Jain-srm/skill-forge"><img src="https://img.shields.io/badge/tests-104_passing-brightgreen.svg?style=for-the-badge" alt="Tests"/></a>
 </p>
 
 <p align="center">
@@ -82,12 +82,13 @@ git clone https://github.com/Adit-Jain-srm/skill-forge.git
 
 ---
 
-## 17 Skills — Each Solves a Named Problem
+## 18 Skills — Each Solves a Named Problem
 
 | # | Problem | Skill | What Changes |
 |---|---------|-------|-------------|
 | 1 | "AI code has hidden bugs" | **ai-debt-detector** | Catches orphaned resources, missing error handling, hallucinated packages |
-| 2 | "Agent says 'done' but it's NOT" | **prove-it** | Forces evidence before any completion claim |
+| 2 | "Visual edits miss the target" | **design-mode** | Precision UI editing with Cursor Design Mode — targeted, minimal, correct |
+| 3 | "Agent says 'done' but it's NOT" | **prove-it** | Forces evidence before any completion claim |
 | 3 | "Agent shows buggy first drafts" | **self-review** | Reviews own code BEFORE presenting |
 | 4 | "Building the wrong thing" | **grill** | Interview yourself until every decision is resolved |
 | 5 | "Something broken, don't know why" | **diagnose** | Forced loop: reproduce → minimise → hypothesise → fix |
