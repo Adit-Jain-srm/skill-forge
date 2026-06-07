@@ -61,10 +61,12 @@ After every action, the agent runs a mandatory self-check (see root SKILL.md Pha
 
 - Git push requires HTTP/1.1: `git -c http.version=HTTP/1.1 push` (HTTP/2 fails intermittently)
 - Permanent Cursor install uses directory junction: `~/.cursor/skills/skill-forge` → this repo
-- Tests must pass (98 tests): `node tests/run-tests.js`
+- Tests must pass (104 tests): `node tests/run-tests.js`
 - All skills must validate with 0 warnings: `node scripts/validate-skill.js skills/<name>`
 - Marketplace install: `/plugin marketplace add Adit-Jain-srm/skill-forge`
 - Memory index must be rebuilt after changing learnings: `node scripts/index-memory.js`
 - SkillOpt records outcomes: `node scripts/skillopt.js --record --skill <name> --task "..." --outcome <good|poor|mixed>`
+- Fresh installs: run `skill-forge init` or scripts auto-initialize from `memory/defaults/`
+- Repo ships 70 files to users; `.agents/`, `.claude/`, runtime state are gitignored
 - Publishing target: GitHub under `Adit-Jain-srm` org
 - Context compaction survival: hooks are ineffective post-compaction; behavioral self-enforcement (recite rules at checkpoints, re-read key files) is the only reliable countermeasure
