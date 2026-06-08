@@ -8,6 +8,10 @@ description: >-
   invokes /setup.
 ---
 
+## Overview
+
+One-time configuration that asks your preferences (platforms, domains, GitHub username, discovery style) and generates a config all other skill-forge capabilities use.
+
 # Setup skill-forge
 
 Run this ONCE per environment. It configures skill-forge to work the way YOU work.

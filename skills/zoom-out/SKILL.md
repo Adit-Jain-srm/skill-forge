@@ -37,6 +37,15 @@ Stop. Zoom out. Before touching this code, explain:
 - If you can't explain it simply, you don't understand it well enough to change it safely.
 - Cite specific file paths and line numbers when explaining relationships.
 
+## Zoom Depth
+
+| Situation | How Far to Zoom |
+|-----------|----------------|
+| Modifying one function | Module level (what calls it, what it calls) |
+| Changing an interface/API | Service level (all consumers, all implementations) |
+| Architectural change | System level (all services, data flow, deployment) |
+| "I don't know what this does" | Start at system, narrow to module |
+
 ## Common Mistakes
 
 - Modifying before understanding (leads to cascading breakage)

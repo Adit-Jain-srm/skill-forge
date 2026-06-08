@@ -92,6 +92,22 @@ CONTEXT.md grows over time:
 
 After generating CONTEXT.md:
 - [ ] Every domain concept has exactly ONE term (no synonyms in use)
+
+## Concrete Example
+
+For an e-commerce project, a good CONTEXT.md entry:
+
+```markdown
+**Cart**:
+A temporary collection of products a customer intends to purchase. Exists per-session, persists across page navigation, cleared on checkout completion.
+_Avoid_: basket, bag, order (an Order only exists AFTER checkout)
+
+**SKU**:
+The unique identifier for a specific product variant (size + color). NOT the product itself — one Product has many SKUs.
+_Avoid_: product ID, item number (SKU is variant-level, product ID is parent-level)
+```
+
+This level of precision prevents: wrong variable names (`orderId` when it should be `cartId`), confused queries (joining on product_id when you need sku_id), and verbose explanations ("the thing where users put stuff before buying").
 - [ ] Each term has an "Avoid" list (prevents drift back to vague language)
 - [ ] Relationships are explicit (not just a flat list)
 - [ ] The agent can explain the project using ONLY these terms

@@ -7,6 +7,10 @@ description: >-
   data models, or when user mentions database, schema, migration, indexing, multi-tenant.
 ---
 
+## Overview
+
+Enforce queries-first schema discipline — design every table around its access patterns, index every filter, and verify migrations are safe at production scale.
+
 # Database Schema Design
 
 ## Persistence

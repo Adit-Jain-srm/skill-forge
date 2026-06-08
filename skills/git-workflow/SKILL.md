@@ -9,6 +9,10 @@ description: >-
   for poor git hygiene.
 ---
 
+## Overview
+
+Enforce disciplined git practices on every operation — small atomic commits, conventional messages, clean branch hygiene, and PR readiness checks. Changes how the agent handles git, not just what commands it knows.
+
 # Git Workflow
 
 Change how you handle git. Not a reference — a DISCIPLINE.

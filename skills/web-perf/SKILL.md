@@ -7,6 +7,10 @@ description: >-
   performance, LCP, INP, CLS, lighthouse, bundle size, or "make it faster".
 ---
 
+## Overview
+
+Measure-first performance optimization loop — measure baseline, identify the worst metric, fix ONE thing, re-measure. Prevents guessing and proves every optimization with before/after numbers.
+
 # Web Performance Optimization
 
 ## Persistence

@@ -52,3 +52,29 @@ Tell the user the path so they can reference it next session.
 ## Format
 
 Keep it SHORT. Under 50 lines. A good handoff is one page a new agent can scan in 10 seconds and know exactly what to do.
+
+## Example
+
+```markdown
+## Handoff — skill-forge v1.2.0
+
+**Goal:** Add TF-IDF semantic routing to replace token-overlap matching.
+
+**State:** Route-task.js rewritten and passing. 98 tests green. Not yet pushed.
+
+**Decisions Made:**
+- TF-IDF + cosine similarity (not embedding API — zero dependencies)
+- Compound routing: combine top 3-5 skills when overlap < 40%
+- Indexed learnings surfaced alongside skill matches
+
+**Open Questions:**
+- Should RL weights be per-skill or per-category? (currently per-category)
+
+**Next Steps:**
+1. Run `node tests/run-tests.js` — confirm all pass
+2. Push with `git -c http.version=HTTP/1.1 push origin main`
+3. Update SKILL.md Phase 4 to reference new routing
+
+**Files:** scripts/route-task.js, memory/indexed-learnings.json, tests/run-tests.js
+**Skills for next session:** /prove-it, /self-review
+```

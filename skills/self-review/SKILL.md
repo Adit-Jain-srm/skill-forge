@@ -64,6 +64,25 @@ The user should never see your first draft. They should see your REVIEWED draft.
 - Treating small changes as exempt ("one-line changes can't break things" — they can)
 - Using `any` types or skipping error handling because "it's just a quick fix"
 
+## Example (self-review catching a bug)
+
+```
+// What you wrote:
+const user = await db.users.findOne({ email });
+return user.name;
+
+// Self-review catches:
+// - What if user is null? (findOne returns null for no match)
+// - No error handling on db call
+
+// What you present (after silent fix):
+const user = await db.users.findOne({ email });
+if (!user) throw new NotFoundError(`No user with email: ${email}`);
+return user.name;
+```
+
+The user never sees the first version. They get the reviewed version.
+
 ## Why This Matters
 
 Without self-review: agent presents code → user finds bug → agent fixes → user finds another → cycle wastes time.
