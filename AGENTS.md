@@ -70,3 +70,4 @@ After every action, the agent runs a mandatory self-check (see root SKILL.md Pha
 - Repo ships 70 files to users; `.agents/`, `.claude/`, runtime state are gitignored
 - Publishing target: GitHub under `Adit-Jain-srm` org
 - Context compaction survival: hooks are ineffective post-compaction; behavioral self-enforcement (recite rules at checkpoints, re-read key files) is the only reliable countermeasure
+- Personal Cursor rules at `~/.cursor/rules/`: max-effort.mdc, skill-orchestration.mdc, prompt-amplifier.mdc (all `alwaysApply: true`, not in repo — machine-level config)
